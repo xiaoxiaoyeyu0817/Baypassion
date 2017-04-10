@@ -1,2 +1,2 @@
 # Baypassion
-A classified website
+A project engaging in classified advertisements over internet.
