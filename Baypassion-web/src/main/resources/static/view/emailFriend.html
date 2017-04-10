@@ -1,0 +1,71 @@
+<br>
+<br>
+<span style=" color: #009bb6; font-size: 18px;">{{Successmsg}}</span>
+<div class="inner-content">
+			<form name="form" ng-submit="send()" novalidate ng-show="IsVisible">
+				<div class="row">
+					<div class="col-sm-4">
+						<h2><label>email to friend</label></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Your email address:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="email" class="form-control input-design" name="senderEmailId" ng-model="mailSender.senderMailId" required=""/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div ng-show="form.$submitted && form.senderEmailId.$invalid" class="error">
+      						<span ng-show="form.senderEmailId.$error.required">Email required</span>
+      						<span ng-show="form.senderEmailId.$error.email">Invalid email format</span>
+    					</div>
+    				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Recipient's email address:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="email" class="form-control input-design" name="receiverEmailId" ng-model="mailSender.receiverMailId" required=""/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div ng-show="form.$submitted && form.receiverEmailId.$invalid" class="error">
+      						<span ng-show="form.receiverEmailId.$error.required">Email required</span>
+      						<span ng-show="form.receiverEmailId.$error.email">Invalid email format</span>
+    					</div>
+    				</div>
+				</div>				
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Add a message:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<textarea id="adPostDesc" class="form-control input-design" ng-model="mailSender.message" name="message" required=""></textarea>						
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div ng-show="form.$submitted && form.message.$invalid" class="error">
+      						<span ng-show="form.message.$error.required">Message required</span>
+    					</div>
+    				</div>
+				</div>						
+				<div class="row col-sm-2">
+					<input type="submit" class="btn btn-lg btn-primary btn-block" value="send">
+				</div>							 
+			</form>
+		</div>
+
+
+

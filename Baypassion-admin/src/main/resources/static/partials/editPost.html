@@ -1,0 +1,332 @@
+<header ng-include="'partials/header.html'"> </header>
+<div class="grid_12">
+
+	<ul class="nav main sortable">
+		<li><a href="#home"><span>Registered User</span></a></li>
+		<li><a href="#postByAdmin"><span>Posted By Admin</span></a> <!--/*<ul>
+                     <li><a href="#" >All Post</a> </li>
+                   </ul>*/--></li>
+		<li><a href="#allPost"><span>Post By User</span></a></li>
+	</ul>
+
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="grid_12">
+	<div class="box round first">
+
+		<h2>Post List</h2>
+
+		<div class="block"> 
+			<div class="form-signin" style="max-width: 100%;">
+				<form name="form" ng-submit="modify()" novalidate="">
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label id="bpFmTitle">Title <span class="bp-required">*</span></label>
+					</div>
+                    <div class="col-sm-8 bp-form-title" >
+						<textarea ui-tinymce="tinymceOptions" rows="1" id="adPostTitle" class="form-control input-design" ng-model="user.title" placeholder="Title" name="title"  ng-change="matchProhibited()" required>Title </textarea>
+						<p class="error" ng-if="form.title.$error.required && form.$submitted">Title is required.</p>
+						<p class="error" ng-if="titleProhibited">Title contains Prohibited word {{titleProhibitedWord}}.</p>
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label id="bpFmDescription">Description<span class="bp-required">*</span></label>
+					</div>
+                    <div class="col-sm-8 ">
+						<!-- 						<div class="button-row"> -->
+						<!-- 							<input class="button" value="Bold" type="button" ng-click="ShowSelection('B')" /> <input class="button" value="Italic" type="button" ng-click="ShowSelection('I')" /> <input class="button" value="Underline" type="button" ng-click="ShowSelection('U')" /> -->
+						<!-- 						</div>						 -->
+                        <textarea ng-init="tinymceOptions.height=165;"  ui-tinymce="tinymceOptions" rows="10" id="adPostDesc" class="form-control input-design" ng-model="user.description" placeholder="Description" name="description"  ng-change="matchProhibited()" required>Description </textarea>
+						<p class="error" ng-if="form.description.$error.required && form.$submitted">Description is required.</p>
+						<p class="error" ng-if="descriptionProhibited">Description contains Prohibited word {{descriptionProhibitedWord}}.</p>
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Selling Price: $</label>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-design" name="sellingPrice" ng-model="user.sellingPrice" placeholder="Selling Price: $ " />
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Location </label>
+					</div>
+					 <div class="col-sm-8">
+						<input type="text" class="form-control input-design" name="location" ng-model="user.location" placeholder="Location " />
+					</div>
+				</div><!-- 
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Create a Map Link </label>
+					</div>
+					<div class="col-sm-5">
+						<input type="text" class="form-control input-design" name="mapLink" ng-model="user.mapLink" placeholder="Address " />
+					</div>
+					
+					<div class="col-sm-3">
+						<input type="text" class="form-control input-design" name="zipCode" ng-model="user.zipCode" placeholder="ZIP Code  " />
+					</div>-->
+				
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Your email address <span class="bp-required">*</span>
+						</label>
+					</div>
+					<div class="col-sm-4">
+						<input type="email" class="form-control input-design" name="emailId" ng-model="user.emailId" placeholder="Email" required />
+						<p class="error" ng-if="form.emailId.$error.email && form.$submitted">Invalid Email Address.</p>
+						<p class="error" ng-if="form.emailId.$error.required && form.$submitted">Email is required.</p>
+					</div>
+					 <div class="col-sm-4">
+						<input type="email" ng-blur="matchEmail()" class="form-control input-design" ng-model="user.emailId" name="confirmEmail" placeholder="Confirm Email" required />
+						<p class="error" ng-if="form.confirmEmail.$error.email && form.$submitted">Invalid Email Address.</p>
+						<p class="error" ng-if="form.confirmEmail.$error.required && form.$submitted">Confirm Email is required.</p>
+						<p class="error" ng-if="confirmMailError && form.$submitted">Email doesn't match.</p>
+					</div> 
+				</div>
+		<!-- 		<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Phone Number <span class="bp-required">*</span></label>
+					</div>
+					<div class="col-sm-8">
+						<p>To prevent scam ads from being posted, email addresses are not allowed in this category.</p>
+						<input type="text" class="form-control input-design" name="mobileNo" ng-model="user.mobileNo" placeholder="Mobile Number" />
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Mobile Notifications (optional) </label>
+					</div>
+					<div class="col-sm-8">
+						<p>
+							Enter your phone number if you want to manage your ad by SMS. We will not display or sell your number. Message and data rates apply. See <a href="#">terms</a> for more info.
+						</p>
+						<input type="text" class="form-control input-design" name="mobileNotification" ng-model="user.mobileNotification" placeholder="Mobile Number" />
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Display options </label>
+					</div>
+					<div class="col-sm-8">
+						<label class="checkbox signup-check"> <input type="checkbox" ng-model="user.displayOptions"> <span class="checkbox-span">Yes, show links to my other postings. </span>
+						</label>
+					</div>
+				</div> -->
+				<div class="row form-row">
+                    <div class="col-sm-4">
+                        <label>Add Video </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="brows-btn inline-block">
+                            <p class="inline-block">Max length is 30 sec or 15mb.</p>
+                            <!-- 							<input type = "file" sh-upload = "myFile2" form="uploadForm" class="form-control" name="pic2" min-size="" max-size=""  min="2" max="4" extn="jpg,png" multiple=""/> -->
+                            <input type="file" sh-upload="user.video" form="form" target="bpUploadedVideo" video="loadedVideo" value="Choose Audio" class="button inline-block" name="video" max-size="15360" />
+                            <p class="error" ng-if="form.video.$error.maxFileSize">File is exceeding maximum file size.</p>
+                            <p class="error" ng-if="form.video.$error.maxSize">File is exceeding maximum file size.</p>
+                        </div>
+                    </div>
+                </div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+                        <label>Add Images</label>
+                        <label>You can upload maximum 10 images. </label>
+					</div>
+					<div class="col-sm-8">
+						<div id="dropzone" class="dropzone sm" options="dzOptions" methods="dzMethods" callbacks="dzCallbacks" ng-dropzone></div>
+					</div><br/>
+					 <div ng-repeat="image in user.postImages">
+                            <div class="img-block">
+                                <img src="{{image.imageName}}" alt=""  style="max-width: 60%;" >
+                            </div>
+                        </div>
+				</div>
+				<!-- <div style="pointer-events:none;">
+				<div class="row form-row">
+					<div class="col-sm-12">
+						<p class="Upgrade-text">Upgrades (Keep your ad near the top by purchasing upgrades.)</p>
+					</div>
+				</div>
+				<div class="row form-row">
+					<div class="col-sm-4">
+						<label>Move Ad to Top of Listings</label>
+					</div>
+							<div class="col-sm-8">
+								<label class="checkbox signup-check"> 
+								<input type="checkbox" ng-model="user.moveAdToTopCheck"> 
+								<span class="checkbox-span">Move to top every hour for the next</span> 
+									<select ng-model="user.moveAdToTop">
+										<option value="1" >1 Hours</option>
+										<option value="{{selectedCheckBox.moveTop}}" selected="">{{selectedCheckBox.moveTop}} Hours</option>
+								<option value="2">2 Hours</option>
+								<option value="3">3 Hours</option>
+								<option value="4">4 Hours</option>
+								<option value="5">5 Hours</option>
+								<option value="7">7 Hours</option>
+								<option value="8">8 Hours</option>
+								<option value="9">9 Hours</option>
+								<option value="10">10 Hours</option>
+								<option value="11">11 Hours</option>
+								<option value="12">12 Hours</option>
+								<option value="13">13 Hours</option>
+								<option value="14">14 Hours</option>
+								<option value="15">15 Hours</option>
+								<option value="16">16 Hours</option>
+								<option value="17">17 Hours</option>
+								<option value="18">18 Hours</option>
+								<option value="19">19 Hours</option>
+								<option value="20">20 Hours</option>
+								<option value="21">21 Hours</option>
+								<option value="22">22 Hours</option>
+								<option value="23">23 Hours</option>
+								<option value="24">24 Hours</option>
+									</select> 
+									<span class="checkbox-span">starting now for $1.00 </span>
+								</label>
+							</div>
+						</div>
+
+					<div class="row form-row">
+							<div class="grid_4">
+								<label>Add Nearby Cities </label>
+							</div>
+							<div class="grid_4">
+								<label class="checkbox signup-check"> 
+									<input type="checkbox" checked="checked"> 
+									<span class="checkbox-span" ng-bind-html="user.city.cityName"></span>
+								</label> 
+							</div>
+					</div>
+
+
+						<div class="row form-row">
+							<div class="grid_4">
+								<label>Auto Repost Ad</label>
+							</div>
+							<div class="grid_8">
+								<label class="checkbox signup-check"> 
+									<input type="checkbox" ng-model="user.autoRepostAdCheck"> 
+									<span class="checkbox-span">Move your ad to the top of the listings every</span> 
+									<select ng-model="user.autoRepostAd">
+										<option value="{{selectedCheckBox.repostAd}}" selected="">{{selectedCheckBox.repostAd}} Days</option>										
+								<option value="3" >3 Days</option>
+								<option value="4">4 Days</option>
+								<option value="5">5 Days</option>
+								<option value="6">6 Days</option>
+								<option value="7">7 Days</option>
+								<option value="8">8 Days</option>
+								<option value="9">9 Days</option>
+								<option value="10">10 Days</option>
+								<option value="11">11 Days</option>
+								<option value="12">12 Days</option>
+								<option value="13">13 Days</option>
+								<option value="14">14 Days</option>
+								<option value="15">15 Days</option>
+								<option value="16">16 Days</option>
+								<option value="17">17 Days</option>
+								<option value="18">18 Days</option>
+								<option value="19">19 Days</option>
+								<option value="20">20 Days</option>
+								<option value="21">21 Days</option>
+								<option value="22">22 Days</option>
+								<option value="23">23 Days</option>
+								<option value="24">24 Days</option>
+								<option value="25">25 Days</option>
+								<option value="26">26 Days</option>
+								<option value="27">27 Days</option>
+								<option value="28">28 Days</option>
+								<option value="29">29 Days</option>
+								<option value="30">30 Days</option>
+									</select>
+									after <select ng-model="user.autoRepostAdAfter">
+										<option value="{{selectedCheckBox.repostAfter}}" selected="">{{selectedCheckBox.repostAfter}}:00 AM</option>										
+										<option value="0">12:00 AM</option>
+										<option value="1">1:00 AM</option>
+										<option value="2">2:00 AM</option>
+										<option value="3">3:00 AM</option>
+										<option value="4">4:00 AM</option>
+										<option value="5" >5:00 AM</option>
+										<option value="6">6:00 AM</option>
+										<option value="7">7:00 AM</option>
+										<option value="8">8:00 AM</option>
+										<option value="9">9:00 AM</option>
+										<option value="10">10:00 AM</option>
+										<option value="11">11:00 AM</option>
+										<option value="12">12:00 PM</option>
+										<option value="13">1:00 PM</option>
+										<option value="14">2:00 PM</option>
+										<option value="15">3:00 PM</option>
+										<option value="16">4:00 PM</option>
+										<option value="17">5:00 PM</option>
+										<option value="18">6:00 PM</option>
+										<option value="19">7:00 PM</option>
+										<option value="20">8:00 PM</option>
+										<option value="21">9:00 PM</option>
+										<option value="22">10:00 PM</option>
+										<option value="23">11:00 PM</option>
+									</select>
+									Number of times <select ng-model="user.noOfTimes">
+										<option value="{{selectedCheckBox.times}}" selected="">26 times for ${{selectedCheckBox.times}}</option>										
+										<option value="52">26 times for $1.02</option>
+										<option value="78">78 times for $3.06</option>
+									</select>
+
+								</label>
+							</div>
+						</div>
+						<div class="row form-row">
+							<div class="grid_4">
+								<label>Sponsor Ad</label>
+							</div>
+							<div class="grid_8">
+								<label class="checkbox signup-check"> 
+								<input type="checkbox" ng-model="user.sponserAdCheck"> 
+								<span class="checkbox-span">Your ad will appear highlighted with thumbnails. Number of weeks:</span> 
+								<select ng-model="user.numberOfWeek">
+									<option value="{{selectedCheckBox.weeks}}" selected="">1 week for (${{selectedCheckBox.weeks}})</option>
+									<option value="1">1 week for ($0.00)</option>
+									<option value="3">3 week for ($0.00)</option>
+								</select>
+								</label>
+							</div>
+							</div></div>- -->
+				<input type="submit" class="btn btn-block" value="Modify"/>
+				<div class="row">
+					<div class="col-sm-12">
+						<label class="checkbox signup-check"> <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" required ng-model="user.termOfUse" /> <span class="checkbox-span"><span class="bp-required">*</span> By placing this ad I agree to the <a href="#">terms of use</a>. </span>
+						</label>
+						<p class="error" ng-if="form.rememberMe.$error.required && form.$submitted">Terms is required.</p>
+					</div>
+				</div> 
+			</form>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+<div class="clear"></div>
+
+<div class="clear"></div>
+
+<div id="site_info">
+
+	<p>Copyright All Rights Reserved 2017.</p>
+
+</div>
+
+<!--wrapper end-->
+
+<script src="js/jqery/a11y-accordion.js"></script>

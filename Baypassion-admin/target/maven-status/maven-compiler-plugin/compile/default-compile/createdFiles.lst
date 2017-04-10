@@ -1,0 +1,7 @@
+com\baypassion\controller\AdPostController.class
+com\baypassion\springboot\BaypassionAdmin.class
+com\baypassion\controller\AdminController.class
+com\baypassion\configuration\WebMvcConfig.class
+com\baypassion\controller\ProhibitWordController.class
+com\baypassion\controller\ContactUsController.class
+com\baypassion\configuration\JpaConfiguration.class

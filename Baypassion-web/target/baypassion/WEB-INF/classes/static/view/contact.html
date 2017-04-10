@@ -1,0 +1,147 @@
+<style>
+	#contactForm div {
+    margin-bottom: 18px;
+}
+span.required {
+    color: #f00;
+}
+#contactForm select[name=subject], #contactForm select[name=city] {
+    width: 220px;
+}
+.contactMsg textarea {
+    width: 95%;
+    max-width: 700px;
+}
+#contactForm #fileInput {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+</style>
+		<div class="mainBody""><br/>
+<span style=" color: #009bb6; font-size: 18px;">{{Successmsg}}</span>
+			<div ng-show="IsVisible">
+			<h2 >Contact</h2>
+
+			<form name="formEmail" id="contactForm" class="form-contact" ng-submit="saveContactUs()" >
+				<input type="hidden" name="pageState" value="email"> <input
+					type="hidden" name="lang" value="en-us">
+
+				<div><b>Use the form below for support issues or suggestions.</b></div><br/>
+
+				<div class="selct-inpt">
+					<span class="required">*</span> Choose a category.<br> <select name="subject" ng-model="contactUs.queryCategory">
+					
+						<option value="How do I edit my ad?">How do I edit my ad?</option>
+
+
+
+						<option value="Why am I not able to post an ad?">Why am I
+							not able to post an ad?</option>
+
+
+
+						<option value="I can not find my ad.">I can not find my
+							ad.</option>
+
+
+
+						<option value="How do I post an ad?">How do I post an ad?</option>
+
+
+
+						<option value="I did not receive a Verification Email.">I
+							did not receive a Verification Email.</option>
+
+
+
+						<option value="How do I delete my ad?">How do I delete my
+							ad?</option>
+
+
+
+						<option value="I have a question about my account.">I
+							have a question about my account.</option>
+
+
+
+						<option value="Request a subuser account.">Request a
+							subuser account.</option>
+
+
+
+						<option value="Other">Other</option>
+
+
+					</select>
+				</div>
+
+
+				<div>
+					<span class="required">*</span> Choose a location.<br><select name="city" ng-model="contactUs.location">
+						<option value="{{city.cityName}}" ng-repeat="city in cities">{{city.cityName}}</option>
+
+					</select>
+				</div>
+
+				<div>
+					<span class="required">*</span> Your email address:<br> <input
+						type="email" name="from" size="30" value="" ng-model="contactUs.email">
+				</div>
+
+				<div>
+					<span class="required">*</span> Confirm your email address:<br>
+					<input type="email" name="fromVerify" size="30" value="" ng-model="contactUs.confirmEmail">
+				</div>
+
+
+
+				<div>
+					<span class="required">*</span> Is this the email address you use
+					to post ads?<br> <input type="radio" name="isPostEmail"
+						value="Yes" checked="checked"
+						onclick="hideDiv( 'postEmailBlock' )">Yes <input
+						type="radio" name="isPostEmail" value="No"
+						onclick="showDiv( 'postEmailBlock' );">No<br>
+
+
+
+					<div id="postEmailBlock"
+						style="margin-top: 6px; margin-left: 20px; display: none;">
+
+
+						<span class="required">*</span> Email address you used to post
+						ads:<br> <input type="email" name="postEmail" size="30"
+							value="">
+					</div>
+				</div>
+
+				<div class="linkToAd">
+					Ad title or link to ad:<br> <input type="text" name="link"
+						size="60" value="" style="width: 95%; max-width: 540px;" ng-model="contactUs.adTitleOrLink">
+				</div>
+
+				<div class="contactMsg">
+					<span class="required">*</span> Your message:<br>
+					<textarea cols="60" rows="10" name="message" ng-model="contactUs.message"></textarea>
+				</div>
+
+				<div style="margin-bottom: 2em; position: relative;">
+					<input type="file" name="attachment" id="fileInput" size="40">
+					<input type="button" value="Attach file" id="contactFileButton">
+					<span id="fileName">No file chosen</span>
+				</div>
+
+
+				<input type="submit" value="Submit" class="button" >
+
+			</form>
+
+
+			<div style="clear: both;"></div>
+		</div>
+		
+</div>
+
+

@@ -1,0 +1,72 @@
+<br>
+<br>
+<span style=" color: #009bb6; font-size: 18px;">{{Successmsg}}</span>
+<div class="inner-content">
+			<form name="form" ng-submit="reply()" novalidate>
+				<div class="row">
+					<div class="col-sm-4">
+						<h2><label>Reply</label></h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<h3><label>Re: </label><label ng-bind-html="viewPostContent.title"></label></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Your email address:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="email" class="form-control input-design" name="senderEmailId" ng-model="replyContent.senderMailId" required=""/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div ng-show="form.$submitted && form.senderEmailId.$invalid" class="error">
+      						<span ng-show="form.senderEmailId.$error.required">Please fill in your email address below.</span>
+      						<span ng-show="form.senderEmailId.$error.email">The email address you entered does not appear to be valid.</span>
+    					</div>
+    				</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Confirm your email address:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="email" class="form-control input-design" name="confirmEmailId" ng-model="replyContent.confirmEmailId" required=""/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div ng-show="form.$submitted && form.confirmEmailId.$invalid" class="error">
+      						<span ng-show="form.confirmEmailId.$error.required">Please fill in your email address below.</span>
+      						<span ng-show="form.confirmEmailId.$error.email">The email address you entered does not appear to be valid.</span>
+    					</div>
+    					<div ng-show="form.$submitted && confirmEmailFlag" class="error">
+      						<span>The email address you entered does not match.</span>      					
+    					</div>
+    				</div>
+				</div>				
+				<div class="row">
+					<div class="col-sm-4">
+						<label>Add a message:</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<textarea id="adPostDesc" class="form-control input-design" ng-model="replyContent.message" name="message"></textarea>						
+					</div>
+				</div>									
+				<div class="row col-sm-2">
+					<input type="submit" class="btn btn-lg btn-primary btn-block" value="Send Reply">
+				</div>							 
+			</form>
+		</div>
+
+
+

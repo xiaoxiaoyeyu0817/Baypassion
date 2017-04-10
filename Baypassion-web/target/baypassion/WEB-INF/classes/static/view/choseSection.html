@@ -1,0 +1,98 @@
+<div class="row section-box">
+    <div ng-if="visible.section">
+        <h2>Choose a Section</h2>
+        <ul class="ulPositoin">
+            <li class="cursorPointer" ng-repeat="section in categories">
+                <a href="#" ng-click="selectSection(section)">{{section.categoryName}}</a><br />
+            </li>
+        </ul>
+    </div>
+    <div ng-if="visible.category">
+        <h2>Choose a Category</h2>
+        <ul class="ulPositoin">
+            <li class="cursorPointer" ng-repeat="category in selectedSection">
+                <a href="#" ng-click="selectCategory(category)">{{category.categoryItemName}}</a><br />
+            </li>
+        </ul>
+    </div>
+    <div ng-show="visible.location">
+        <div>
+            <h3>Choose locations</h3>
+            <p>                 
+                <b>Step 1</b> - Choose Number of Weeks: 
+
+            </p>
+            <select  ng-model="selectedWeek" ng-change="calculateCostByWeek()">
+                <option value="" >--</option>
+                <option value="{{week}}"  ng-repeat="week in weeks">{{week}}</option>
+            </select>
+            <p>or             select a discounted package:</p>
+            <ul class="week-list">                                
+                <li ng-repeat="discount in discounts">
+                    <input type="radio"  ng-checked="discount.isSelect" name="discount"  ng-click="calculateCostByDiscount(discount)"/>
+                    {{discount.week}} weeks for ${{(totalCountryCost * discount.week) - (((totalCountryCost * discount.week) * discount.percent) / 100) | number:2}} ({{discount.percent}}%)
+                </li>
+            </ul>
+            <p>
+                <b>Step 2</b> <span> - Select one or more locations:</span>
+            </p>
+            <p>
+                <b>Total: ${{finalCost}}</b>
+            </p>
+            <p>
+                <span>Select:</span><a href="#" ng-click="checkAll(countries, true);"> all</a> / <a href="#" ng-click="checkAll(countries, false)"> none </a>
+            </p>
+        </div>
+        <div class="grid_12 bp-country-chooser">
+            <div class="box round first" id="countryList">
+                <h2>Choose locations</h2>
+                <div ng-if="countries.length >= 1">
+                    <div class="block">
+                        <ul class="user-list">
+                            <li class="list-user" ng-repeat="country in countries">
+                                <div class="user-name">
+                                    <input type="checkbox" ng-model="country.isSelect" ng-change="checkCountry(country, country.isSelect);"/> 
+                                    <span>{{country.countryName}} </span>									
+                                    <span ng-if="country.totalCost">${{country.totalCost}} </span>									
+                                    <span class="fa fa-minus bp-minus" ng-click="country.isSelect = !country.isSelect; checkCountry(country, country.isSelect);" ng-if="country.hasValue"></span>
+                                </div>
+                                <div class="view-btn">
+                                    <a href="#" class="button" ng-click="country.isOpen = !country.isOpen">View State</a>
+                                </div>
+                                <div class="user-profile" ng-if="country.isOpen" style="display: block">
+                                    <div ng-if="country.state.length >= 1">
+                                        <div class="block">
+                                            <ul class="user-list">
+                                                <li class="list-user" ng-repeat="state in country.state">
+                                                    <div class="user-name">
+                                                        <input type="checkbox" ng-model="state.isSelect" ng-change="checkState(state.isSelect, state, country);"/>
+                                                        <span>{{state.stateName}} </span>
+                                                        <span ng-if="state.totalCost">${{state.totalCost}} </span>
+                                                        <span class="fa fa-minus bp-minus" ng-click="state.isSelect = !state.isSelect; checkState(state.isSelect, state, country);" ng-if="state.hasValue"></span>
+                                                    </div>
+                                                    <div class="view-btn">
+                                                        <a href="#" class="button" ng-click="state.isOpen = !state.isOpen">View Cities</a>
+                                                    </div>
+                                                    <div class="user-profile city-list" ng-if="state.isOpen" style="display: block">
+                                                        <ul>
+                                                            <li ng-repeat="city in state.city">
+                                                                <input type="checkbox"   ng-model="city.isSelect" ng-change="checkCity(city.isSelect, state, country);"/> 
+                                                                <span>{{city.cityName}}</span>
+                                                                <span>$0.7</span>  
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="continueToAdPost()">Continue</button>
+    </div>
+</div>

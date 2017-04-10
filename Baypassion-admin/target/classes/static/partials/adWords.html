@@ -1,0 +1,84 @@
+<header ng-include="'partials/header.html'"> </header>
+<div class="grid_12">
+	<ul class="nav main">
+		<li><a href="#home"><span>Registered User</span></a></li>
+		<!-- <li><a href="#postByAdmin"><span>Posted By Admin</span></a> /*<ul>
+                     <li><a href="#" >All Post</a> </li>
+                   </ul>*/</li> -->
+		<li><a href="#allPost"><span>Post By User</span></a></li>
+		<li><a href="#adWords"><span>Add Words</span></a></li>
+				<li><a href="#contactUs"><span>ContactUs</span></a></li>
+	</ul>
+
+</div>
+<style>
+.form-signin h2, h2 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    position: relative;
+    padding-left: 15px;
+    line-height: 90%;
+    font-family: 'EuromodeBold';
+}
+.colorChange{
+color:red;}
+</style>
+<div class="clear"></div>
+
+<div class="inner-content">
+	<div class="login-form">
+		<div class="form-signin">
+			<form name="form" ng-submit="saveWord()" novalidate>
+			        	<h2 class="form-signin-heading"><b>Add Word</b></h2>
+					<input type="text" class="form-control input-design" name="wordName"
+					placeholder="Word Name" required="" ng-model="prohibitWord.wordName" required="" maxlength="15"/>
+					 <div ng-show="form.$submitted && form.wordName.$invalid" class="error colorChange" >
+                    <span ng-show="form.wordName.$error.required">wordName name required</span></div>
+				<input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit"> 
+			</form>
+		</div>
+	</div></div>
+
+<div class="grid_12">
+	<div class="box round first">
+	<div ng-if="prohibitWordList.length>=1">
+		<h2>List Of Words</h2>
+<div>
+	
+				<div class="user-all">	
+				<table class="table-design" style="width:50%; margin-left: 27%; margin-top: 2%;">
+					<thead>
+						<tr>
+						    <th>S.No.</th>
+							<th>Word Name</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					
+				<tbody>
+						<tr ng-repeat="prohibitWord in prohibitWordList">
+							<td>{{$index+1}}</td>
+							<td>{{prohibitWord.wordName}} </td>
+							<td><a href="#" class="button" ng-click="editAdWord(prohibitWord.prohibitWordId)">Edit</a> </td>
+							<td><a href="#" class="button" ng-click="deleteAdWord(prohibitWord)">Delete</a> </td>
+						</tr>
+						
+						</tbody>
+					
+				</table>
+			</div>
+		
+		</div>
+
+	</div>
+</div></div>
+<div class="grid_12">
+	<div class="box round first">
+ <div ng-if="prohibitWordList.length==0"><h2><b style= "color:red;"> No Words Available</b></h2></div> </div></div>
+
+<div class="clear"></div>
+
+
+

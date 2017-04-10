@@ -1,0 +1,87 @@
+<header ng-include="'partials/header.html'"> </header>
+<div class="grid_12">
+	<ul class="nav main">
+		<li><a href="#home"><span>Registered User</span></a></li>
+		<!-- <li><a href="#postByAdmin"><span>Posted By Admin</span></a> /*<ul>
+                     <li><a href="#" >All Post</a> </li>
+                   </ul>*/</li> -->
+		<li><a href="#allPost"><span>Post By User</span></a></li>
+		<li><a href="#adWords"><span>Add Words</span></a></li>
+				<li><a href="#contactUs"><span>ContactUs</span></a></li>
+		
+	</ul>
+
+</div>
+
+<div class="clear"></div>
+
+
+
+<div class="grid_12">
+	<div class="box round first" ng-if="contactUsList.length>=1">
+		<h2>List Of ContactUs</h2>
+	 	<ul class="user-list ">  
+				<li class="list-user" ng-repeat="contactUs in contactUsList">
+					 <div class="user-name">{{contactUs.adTitleOrLink}}</div>
+					<div class="view-btn">
+						<a href="#" class="button" ng-click="viewContactUsDetails(contactUs.contactId)">View profile</a>
+					</div> 
+					<div ng-if="contactUs.contactId==isVisible">
+					<div class="user-profile" 
+						style="display: block">
+		  				<div class="form-signin">
+							<form>
+								<ul class="form-list">
+									<li class="form-row">
+										<div class="grid_4">
+											<label>Email Address</label>
+										</div>
+										<div class="grid_8">
+											<p>{{contactUs.email}}</p>
+										</div>
+									</li>
+
+						 	<li class="form-row">
+										<div class="grid_4">
+											<label>Password</label>
+										</div>
+										<div class="grid_8">
+											<p>{{contactUs.location}}</p>
+										</div>
+									</li>
+									
+									<li class="form-row">
+										<div class="grid_4">
+											<label>Contact</label>
+										</div>
+										<div class="grid_8">
+											<p>{{contactUs.message}}</p>
+										</div>
+									</li> 
+									<li class="form-row">
+										<div class="grid_4">
+											<label>Query Category</label>
+										</div>
+										<div class="grid_8">
+											<p>{{contactUs.queryCategory}}</p>
+										</div>
+									</li> 
+								</ul>
+							</form>
+						</div>
+					</div></div>
+				</li>
+			</ul>
+
+ 
+		</div>
+
+	</div>
+
+<div class="grid_12">
+	<div class="box round first" >
+<div  ng-if="contactUsList.length==0"><h2><b style= "color:red;"> No ContactUs Available</b></h2></div></div></div>
+
+
+
+<div class="clear"></div>

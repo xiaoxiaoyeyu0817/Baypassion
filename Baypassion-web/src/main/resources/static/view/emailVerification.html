@@ -1,0 +1,35 @@
+<div class="container">
+		<div class="row">
+			<div class="post-sale col-sm-10">
+				<h3 ng-bind-html="postData.title"></h3>														
+			</div>				
+		</div>
+		<div class="row">
+			<div class="post-sale col-sm-12">
+				Description : <span class="bp-border-bottom" ng-bind-html="postData.description"></span>														
+			</div>
+		</div>
+		<div class="row">
+			<div class="post-sale col-sm-12">				
+				<span>Email : <b>{{postData.emailId}}</b></span>														
+			</div>
+		</div>
+		<div class="row">
+			<div class="post-sale col-sm-12">				
+				<ul>
+					<li>
+						Location : {{postData.location}}
+					</li>
+					<li>
+						Selling Price : {{postData.sellingPrice}}
+					</li>
+								
+				</ul>											
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<a href="#base">Home</a>
+			</div>			
+		</div>			
+	</div>

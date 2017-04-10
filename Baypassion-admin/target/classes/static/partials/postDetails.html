@@ -1,0 +1,74 @@
+<header ng-include="'partials/header.html'"> </header>
+<div class="grid_12">
+
+	<ul class="nav main">
+		<li><a href="#home"><span>Registered User</span></a></li>
+	<!-- 	<!-- <li><a href="#postByAdmin"><span>Posted By Admin</span></a> /*<ul> -->
+                    <!--  <li><a href="#" >All Post</a> </li>
+                   </ul>*/</li> -->
+		<li><a href="#allPost"><span>Post By User</span></a></li>
+		<li><a href="#adWords"><span>Add Words</span></a></li>
+		
+	</ul>
+
+</div><div class="accordion" data-action="is-accordion" id="accStatic">
+<div class="costomize-row" style="margin-top: 5%;">
+						<a href="#modifyPost" ng-click="modifyPost()" class="button">Modify</a> 
+						<a href="#" class="button" ng-click="deletePost(postId)">Delete</a> 
+						<a href="#" class="button" ng-click="approvedPost(postId)">Approved</a>
+					</div>
+					<div class="form-signin" style="max-width: 100%;">
+						<form>
+							<ul class="form-list">
+								<li class="form-row">
+									<div class="grid_4">
+										<label>Title</label>
+									</div>
+									<div class="grid_8">
+										<p ng-bind-html="addPostDetail.title"></p>
+									</div>
+								</li>
+
+								<li class="form-row">
+									<div class="grid_4">
+										<label >Description</label>
+									</div>
+									<div class="grid_8">
+										<p ng-bind-html="addPostDetail.description"></p>
+									</div>
+								</li>
+
+								<li class="form-row">
+									<div class="grid_4">
+										<label>Selling Price:</label>
+									</div>
+									<div class="grid_4">
+										<p>$ {{addPostDetail.sellingPrice}}</p>
+									</div>
+								</li>
+								<li class="form-row">
+									<div class="grid_4">
+										<label>Location </label>
+									</div>
+									<div class="grid_8">
+										<p>{{addPostDetail.location}}</p>
+									</div>
+								</li>
+								<li class="form-row">
+									<div class="grid_4">
+										<label>Your email address </label>
+									</div>
+									<div class="grid_4">
+										<p>{{addPostDetail.emailId}}</p>
+									</div>
+								</li>
+
+							</ul>
+						</form>
+					</div></div>
+				</div>
+				
+				<div class="clear"></div>
+				
+				
+				

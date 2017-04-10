@@ -1,0 +1,1607 @@
+@charset "utf-8";
+/* CSS Document */
+
+.thumbnail-wrapper{    
+     float: left;
+    margin: 30px -15px;
+}
+.thumbnail-wrapper>img{    
+    height: 70px;    
+    margin-top: 10px;
+}
+
+#dialogBg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;    
+    float: left;
+    top: 0;
+    left: 0;
+    z-index: 1111;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #b1b1b1;
+    opacity: .5;
+}
+#dialogCantante{
+    width: 60%;
+    height: 60%;
+    position: fixed;
+    display: none;        
+    top: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1112;
+}
+
+#bpUploadedVideo{
+    width:100%;
+}
+
+div.bp-city-search{
+
+}
+
+div.bp-city-search>span{
+    border-color: #009ab5;
+    color:#fff;
+    background-color: #009ab5;
+}
+
+div.bp-city-search>input{
+    border-color: #009ab5;
+}
+
+div.mce-tinymce{
+    margin-bottom: 10px;
+}
+
+div.bp-form-title .mce-edit-area iframe{
+    height:35px!important;    
+}
+
+.bp-selected-images{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    overflow: hidden;
+    display: block;
+}
+
+.bp-selected-images>div{
+    width: 100%;
+    min-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    min-height: 125px;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -o-column-break-inside: avoid;
+    -ms-column-break-inside: avoid;
+    column-break-inside: avoid;
+    page-break-inside: avoid;
+    overflow: hidden;
+    min-width: 164px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    display: inline;
+}
+
+#loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    background-image: url(../images/loading.gif );
+    float: left;
+    top: 0;
+    left: 0;
+    z-index: 1111;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #b1b1b1;
+    opacity: .5;
+}
+
+.bp-country-wrapper {
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+}
+
+.bp-state-wrapper {
+    min-width: 100%;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    -o-column-break-inside: avoid;
+    -ms-column-break-inside: avoid;
+    column-break-inside: avoid;
+    page-break-inside: avoid;
+    overflow: hidden;
+    margin-bottom: 0.75em;
+    max-width: 150px;
+}
+img.tiny-emoji{
+    width: 20px!important;
+    height: 20px!important;
+}
+.bp-city-wrapper {
+
+}
+
+.bp-state-wrapper .bp-city-wrapper {
+    margin-left: 10px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: url(../images/head-bg.jpg) no-repeat top right;
+    color: #000;
+    background-size: 100%; /*font-family: 'Conv_euron';*/
+    font-family: 'Open Sans', sans-serif;
+}
+
+@font-face {
+    font-family: 'Conv_euron';
+    src: url('../fonts/euron.eot');
+    src: local('☺'), url('../fonts/euron.woff') format('woff'),
+        url('../fonts/euron.ttf') format('truetype'),
+        url('../fonts/euron.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EuromodeBold';
+    src: url('../fonts/EuromodeBold.woff') format('woff'),
+        url('../EuromodeBold.ttf') format('truetype'),
+        url('../EuromodeBold.svg#EuromodeBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'eurob';
+    src: url('../eurob.eot');
+    src: url('../eurob.woff2') format('woff2'), url('../eurob.eot?#iefix')
+        format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.text-center.logo {
+    width: 223px;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul.dropdown-menu.dmenu {
+    right: 0px;
+    left: initial;
+}
+
+.dropdown.location .btn-primary {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #009ab7;
+    width: 400px;
+    text-align: left;
+    color: #009bb7;
+}
+
+.dropdown.location .btn-primary:hover {
+    background: none;
+}
+
+.dropdown-toggle.btn-primary:focus {
+    background: none;
+}
+
+header.bg-top {
+    padding-top: 10px;
+}
+
+.lang {
+    border: 1px solid #232323;
+    float: right;
+    width: 162px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logo h3 {
+    color: #009bb6;
+    font-size: 34px;
+    font-family: 'Conv_euron';
+    margin: 0px;
+    text-align: left;
+}
+
+.logo h3 span {
+    color: #fbad3b;
+    font-family: 'EuromodeBold';
+}
+
+.heading h3 {
+    background: #000;
+    font-family: 'Conv_euron';
+    font-size: 28px;
+    color: #FFF;
+    width: 240px;
+    padding: 7px 22px;
+    margin: 0px;
+}
+
+.heading {
+    margin-top: 50px;
+}
+
+.inline-list {
+    vertical-align: top;
+    color: #524e4e;
+    margin-bottom: 0px;
+    margin-left: 25px;
+    line-height: 180%;
+}
+
+.inline-ad {
+    padding-right: 0px;
+    margin-top: 80px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inline-ad h4 {
+    background: #009bb6;
+    padding: 10px 49px;
+}
+
+.inline-ad button {
+    background: #009bb6;
+    padding: 8px 34px;
+    border: none;
+}
+
+.inline-ad h4 {
+    background: #009bb6;
+    padding: 10px 49px;
+}
+
+.inline-ad input {
+    padding: 7px 4px;
+}
+
+.post-add {
+    padding: 0 0 70px 0;
+}
+
+.text-center.logo a {
+    text-decoration: none;
+}
+
+.text-post h4 {
+    color: #7a7676;
+    font-size: 18px;
+    margin-top: 33px;
+    padding-bottom: 17px;
+}
+
+.text-post h5 {
+    color: #7a7676;
+    margin: 0px;
+    padding-top: 10px;
+}
+
+.text-post h3 {
+    margin: 0px;
+    color: #009bb6;
+    margin-top: 22px;
+}
+
+.text-post h2 {
+    color: #009bb6;
+    font-size: 18px;
+}
+
+h4.text-hedc {
+    background: #e1e1e1;
+    border: 2px solid #009bb6;
+    padding: 9px 11px;
+    color: #524e4e;
+}
+
+.text-img {
+    width: 160px;
+    border: 1px solid #ccc;
+    text-align: center;
+    padding-top: 11px;
+}
+
+.text-img p {
+    color: #009bb6;
+    font-size: 13px;
+}
+
+.text-img h4 {
+    color: #000;
+    font-size: 12px;
+}
+
+.table-list ul li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 262px;
+    padding: 23px 0px 32px;
+}
+
+.sell-trade {
+    margin-top: 60px;
+    padding-bottom: 30px;
+}
+
+.input-box {
+    padding-top: 18px;
+}
+
+.input-box input {
+    border: 3px solid #00aeef;
+    padding: 5px 19px;
+    margin-right: 17px;
+}
+
+.price {
+    margin: 10px 1px 7px;
+    padding-top: 10px;
+}
+
+.price input {
+    margin-bottom: 14px;
+    padding: 3px 3px;
+}
+
+.btn-serch button {
+    background: #ccc;
+    padding: 7px 43px;
+    border: 3px solid #00aeef;
+    border-radius: 7px;
+}
+
+.sell-trade h5 {
+    color: #080606;
+    font-size: 16px;
+}
+
+.post-sale h5 {
+    font-size: 20px;
+    color: #524e4e;
+}
+
+.post-sale h4 {
+    padding: 17px 1px;
+}
+
+.post-sale h5 {
+    background: #ccc;
+    padding: 10px 11px;
+    font-size: 20px;
+    border: 1px solid #00aeef;
+    color: #524e4e;
+    width: 600px;
+}
+
+.post-sale ul li {
+    list-style-type: none;
+    padding: 10px 1px 46px;
+}
+
+.img-block {
+    width:25%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.text-block {
+    display: inline-block;
+    width: 79%;
+    vertical-align: middle;
+    color: #524e4e;
+    font-size: 20px;
+}
+
+.btn-serch.text-center {
+    width: 300px;
+}
+
+.inline-list li {
+    list-style-type: none;
+}
+
+h3 {
+    color: #000;
+    font-size: 20px;
+    font-family: 'EuromodeBold';
+    margin: 40px 0 20px;
+}
+
+ul.ftr-list li a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.f-bg {
+    background: url(../images/bg-ftr.jpg) no-repeat;
+    background-size: 100%;
+    height: 367px;
+    margin-top: 70px;
+    padding:174px 0;
+}
+
+ul.ftr-list {
+    display: inline-block;
+}
+
+ul.ftr-list li {
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 20px;
+    color: #FFF;
+    margin-top: 0px;
+}
+
+.footer {
+    text-align: center;
+}
+/*11-2-17 css*/
+.location-area {
+    display: block;
+    border-bottom: 1px solid #009bb6;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+.location-area a {
+    color: #009bb6;
+    font-family: 'EuromodeBold';
+    font-size: 16px;
+}
+
+.inner-content {
+    margin-top: 70px;
+}
+
+/**/
+.form-signin {
+    max-width: 420px;
+    padding: 15px 25px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
+}
+
+.form-signin h2, h2 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: 25px;
+    position: relative;
+    padding-left: 15px;
+    line-height: 90%;
+    font-family: 'EuromodeBold';
+}
+
+.form-signin h2:before, h2:before {
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 100%;
+    background: #FCAC3B;
+    top: 2px;
+    left: 0;
+}
+
+.input-design {
+    margin-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.signup-check.checkbox input[type="checkbox"] {
+    margin-left: 0px;
+}
+
+.signup-check .checkbox-span {
+    padding-left: 20px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.btn-primary {
+    background: #009BB7;
+    border-color: #009BB7;
+    font-family: 'EuromodeBold';
+    text-transform: uppercase;
+}
+
+.btn-primary:hover {
+    background: #067589;
+}
+
+.form-signin a {
+    display: inline-block;
+}
+
+.dont-have {
+    margin-top: 10px;
+}
+
+.dont-have a {
+    display: inline-block;
+    padding: 5px 8px;
+    text-decoration: underline;
+}
+
+/*post page*/
+.all-step {
+    margin: 40px 0;
+}
+
+.all-step li {
+    list-style-type: none;
+    vertical-align: middle;
+    margin: 0 15px;
+    position: relative;
+    display: inline-block;
+    background: #CCCCCC;
+    padding: 15px 10px 15px 40px;
+    width: 21%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 120%;
+    font-family: 'Open Sans', sans-serif;
+    color: #737373;
+}
+
+.all-step li:first-child {
+    margin-left: 0px;
+}
+
+.all-step li::before {
+    border-bottom: 25px solid rgba(0, 0, 0, 0);
+    border-left: 30px solid #ffffff;
+    border-top: 25px solid rgba(0, 0, 0, 0);
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.all-step li::after {
+    border-bottom: 25px solid rgba(0, 0, 0, 0);
+    border-left: 30px solid #ccc;
+    border-top: 25px solid rgba(0, 0, 0, 0);
+    content: "";
+    height: 0;
+    right: -30px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.all-step li.active {
+    background: #009BB7;
+    color: #fff;
+}
+
+.all-step li.active:after {
+    border-left: 30px solid #009BB7;
+}
+
+/*post page css*/
+.all-form .form-signin {
+    max-width: inherit;
+    width: 80%;
+}
+
+.all-form label {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.button-row {
+    margin-bottom: 10px;
+}
+
+.button {
+    cursor: pointer;
+    background: #009BB7;
+    border-radius: 0px;
+    border: 0;
+    padding: 5px 15px;
+    color: #fff;
+    margin-right: 10px !important;
+    border: 1px solid #009BB7;
+}
+
+.button:hover {
+    background: none;
+    color: #009BB7;
+}
+
+.form-row {
+    background: rgba(0, 0, 0, 0.03) none repeat scroll 0 0;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+    margin-bottom: 18px;
+    padding: 16px 0;
+}
+
+.form-row input {
+    margin: 0px;
+}
+
+.inline-block {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+p.inline-block {
+    margin-bottom: 0px;
+}
+
+.form-row  select {
+    margin: 0 5px;
+}
+
+.signup-check input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox-span, .all-form  p {
+    line-height: 150%;
+}
+
+.location-area a:focus, .location-area a:hover {
+    text-decoration: none;
+}
+
+.dropdown-menu {
+    width: 100%;
+    background: rgba(0, 155, 183, 09);
+    border: 0px;
+    border-radius: 0px;
+    display: block;
+}
+
+.dropdown-menu>li>a {
+    font-size: 14px;
+}
+
+button#searchButton {
+    margin-top: 16px;
+    float: left;
+}
+
+.input-box select {
+    border: 3px solid #00aeef;
+    padding: 5px 19px;
+    margin-right: 17px;
+    float: left;
+    width: auto;
+}
+
+.post-sale {
+    margin-top: 16px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-sale h4 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.post-sale ul>li {
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
+.post-sale p {
+    margin: 0px;
+}
+
+.bp-border-bottom {
+    border-bottom: 3px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.bp-reply-btn {
+    margin-bottom: 20px;
+}
+
+/*************10-3-17***********/
+.inline-ad button {
+    padding: 8px 15px;
+    vertical-align: middle;
+}
+
+.sell-trade .input-box {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.sell-trade .btn-serch {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+h4.ng-binding {
+    font-size: 20px;
+    padding: 15px;
+    display: block;
+}
+
+.img-block {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    margin-right: 17px;
+    vertical-align: middle;
+}
+
+/*dikshant css****/
+#contactForm select[name="subject"], #contactForm select[name="city"],
+#contactForm input[type="text"], #contactForm input[type="email"],
+#contactForm textarea {
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+.toTop, .toBottom {
+    text-decoration: none;
+    background: #00baff;
+    color: #fff;
+    display: inline-block;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.nam {
+    width: 29%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-row select {
+    margin: 2px 19px;
+}
+
+.inline-txt {
+    display: inline-block;
+    vertical-align: text-top;
+}
+
+input, button, select, textarea {
+    padding: 2px 5px;
+}
+
+.inline-ad {
+    margin-top: 0px !important;
+    vertical-align: middle !important;
+}
+
+.inline-ad button {
+    vertical-align: middle;
+}
+
+.form-signin h2, h2 {
+    padding-top: 10px;
+}
+
+.signup-check.checkbox input[type="checkbox"] {
+    position: static;
+}
+
+.inline-ad select {
+    padding: 7px 5px;
+}
+
+/*28-3-17*/
+.title-description-area h3{margin-top: 0px;} 
+.bp-state-wrapper h3{margin: 0px; padding:40px 0 20px;}
+.post-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+}
+.post-left .img-block{width: 100%;}
+.post-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 60%;
+    padding-left: 50px;
+}
+.post-right .text-block {
+    margin-top: 15px;
+}
+
+.title-description-area{ margin-top: 50px;}
+.title-button-bar{margin-top: 50px;}
+
+.btn {font-family: 'Open Sans', sans-serif;}
+.post-sale li.ng-binding{margin-top: 0px;}
+
+p.detail-title {
+    margin-top: 15px;
+    font-size: 18px;
+}
+.video-section{width: 50%;display: block; background: rgba(0, 0, 0, 0.1); border: 3px solid rgba(0, 0, 0, 0.2); padding:5px; text-align: center; margin-top: 15px;}
+
+
+.input-box select {
+    border: 3px solid #00aeef;
+    padding: 5px 19px;
+    margin-right: 17px;
+    float: left;
+    width: auto;
+}
+
+.post-sale {
+    margin-top: 16px;
+    max-width:100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-sale h4 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.post-sale ul>li {
+    margin: 0px;
+    padding-bottom: 20px;
+}
+
+.post-sale p {
+    margin: 0px;
+}
+
+.bp-border-bottom {
+    border-bottom: 3px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.bp-reply-btn {
+    margin-bottom: 20px;
+}
+
+.user-list {
+    padding: 0px;
+}
+
+.user-list li {
+    list-style-type: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    background: #fff;
+    float: left;
+    width: 100%;
+}
+
+.user-name {
+    display: inline-block;
+    vertical-align: middle;
+    width: 60%;
+}
+
+.view-btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 38%;
+    text-align: right;
+}
+
+.view-btn a {
+    display: inline-block;
+}
+
+.form-list .button, .button {
+    cursor: pointer;
+    background: #faad3b;
+    border-radius: 0px;
+    border: 0;
+    padding: 5px 15px;
+    color: #fff;
+    margin-right: 10px !important;
+    border: 1px solid #faad3b;
+}
+
+.block {
+    padding: 20px;
+}
+
+.box h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background: #ccbda6;
+    margin: -10px -10px 0 -10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #B3CBD6;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.box {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+#countryList {
+    margin-top: 50px;
+}
+
+p.error {
+    color: red;
+}
+
+div .bp-margin-top {
+    margin-top: 10px;
+}
+
+.bp-required {
+    color: red;
+    margin: 0px 3px;
+    display: inline-block;
+    position: relative;
+}
+
+.city-list {
+
+}
+
+.city-list>ul>li {
+    float: left;
+    width: 30%;
+    margin-left: 3%;
+}
+
+.week-list {
+
+}
+
+.week-list>li {
+    list-style-type: none;
+}
+
+.week-list>li input {
+    margin: 10px;
+}
+
+.bp-minus {
+    position: absolute;
+    left: 2px;
+    top: 4px;
+    width: 7px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bp-country-chooser .user-name {
+    position: relative;
+}
+
+/*left navigation css S*/
+.left-nav .nav-buton {
+    margin: 15px auto;
+    max-width: 80%;
+    text-align: center;
+}
+
+.left-nav .nav-buton .btn {
+    padding: 10px 15px;
+    background: #FAAD3B;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    width: 70%;
+    border: 0px;
+}
+
+.left-nav .nav-list ul li:first-child {
+    border-top: 1px solid #ccc;
+}
+
+.left-nav .nav-list ul li h4 {
+    margin: 0;
+    color: #000 !important;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.left-nav .nav-list ul li a {
+    color: #000;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.left-nav .nav-list span i {
+    color: #2D2D2D;
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+.opent-btn {
+    background: #009bb7 none repeat scroll 0 0;
+    color: #ffffff;
+    font-size: 21px;
+    left: 15px;
+    padding: 2px 8px;
+    position: absolute;
+    top: 80px;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.closebtn:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 2px 3px 1px #cccccc;
+}
+
+.sidenav a {
+    transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 24px;
+}
+
+.overlay {
+    position: relative;
+}
+
+.overlay:before {
+    position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1184px) {
+    .form-row select {
+        margin: 2px 14px;
+    }
+    .signup-check .checkbox-span {
+        max-width: 90%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .f-bg {
+        height: auto;
+        background-size: cover;
+        padding: 60px 0;
+    }
+    ul.ftr-list li {
+        margin-top: 0px;
+    }
+    .btn-lg, .btn-group-lg>.btn {
+        font-size: 15px;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .all-form .form-signin {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .inline-ad input{padding:3px 4px;}
+    .bp-country-wrapper {
+        -webkit-column-count: 5;
+        -moz-column-count: 5;
+        column-count: 5;
+    }
+    .inline-ad {
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+    .inline-ad button {
+        padding:5px 12px;
+        vertical-align: middle !important;
+    }
+    .inline-ad input {
+        max-width:24%;
+    }
+    .inline-ad select {
+        padding: 4px;
+    }
+    .inline-ad .inline-ad {
+        margin-top: 0 !important;
+        vertical-align: middle !important;
+    }
+    .inline-ad button {
+        padding: 5px 10px;
+    }
+    .sell-trade .btn-serch.text-center {
+        width: auto;
+    }
+    .all-step li {
+        width: 45%;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .all-form .form-signin {
+        width: 100%;
+    }
+
+    /*table responsive*/
+
+    /* Force table to not be like tables anymore */
+    table.market-table, .market-table  thead, .market-table  tbody,
+    .market-table th, .market-table td, .market-table tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .market-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    .market-table tr {
+        border: 1px solid #ccc;
+    }
+    .market-table tbody td {
+        /* Behave  like a "row" */
+        border: none;
+        position: relative;
+        padding-left: 50% !important;
+    }
+    .market-table td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 35%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    /*
+    Label the data
+    */
+    .market-table td:nth-of-type(1):before {
+        content: "Date";
+    }
+    .market-table td:nth-of-type(2):before {
+        content: "Market";
+    }
+    .market-table td:nth-of-type(3):before {
+        content: "Ad Title";
+    }
+    .market-table td:nth-of-type(4):before {
+        content: "Category";
+    }
+    .market-table td:nth-of-type(5):before {
+        content: "Type";
+    }
+    .market-table td:nth-of-type(6):before {
+        content: "Status";
+    }
+    .section-box {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .section-box .ulPositoin {
+        padding-left: 10px;
+    }
+    #contactForm select[name="subject"], #contactForm select[name="city"],
+    #contactForm input[type="text"], #contactForm input[type="email"],
+    #contactForm textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .inner-content h3{margin-top: 0px;}
+    .title-button-bar {
+        margin-top: 10px;
+    }
+    .bp-country-wrapper {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+    .text-center.logo {
+        width: 100%;
+    }
+    .logo h3 {
+        text-align: center;
+    }
+    header .col-sm-8.pull-right.ng-scope {
+        width: 95%;
+        float: none !important;
+        margin: 0px auto;
+    }
+    .location-area.row .col-sm-6 {
+        width: 49%;
+        float: left;
+    }
+    .post-add {
+        padding: 20px 0 40px 0;
+    }
+    inline-ad button {
+        padding: 9px 20px;
+        vertical-align: middle !important;
+    }
+    .inline-ad {
+        padding-right: 0px;
+    }
+    .form-signin input {
+        margin-top: 5px;
+    }
+    header .col-sm-8.pull-right.ng-scope {
+        text-align: center;
+    }
+    ul, ol{padding-left: 8px;}
+    li{margin-bottom: 5px;}
+    h3{    margin: 10px 0 10px;}
+    .nav-list li{list-style-type: none;}
+}
+
+@media only screen and (max-width:704px) {
+    .post-sale {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+	.responsive-col {
+    width: 100%;
+    display: block;
+    float: none;
+}
+
+.description-new .col-md-6, .description-new .col-md-5{width:100%; float:none; display:block;}
+h3.ng-binding{padding:20px 0 10px;}
+
+.col-md-3, .col-sm-6, .all-post-sale .col-md-6{width:100%; float: none;}
+
+
+    .title-description-area{margin-left: auto; margin-right: auto; }
+    .bp-country-wrapper {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+    .inline-ad .inline-ad {
+        width: 100%;
+        display: block;
+        float: none;
+        margin-top: 20px !important;
+    }
+    .inline-ad .inline-ad input, .inline-ad .inline-ad select, .inline-ad .inline-ad .inline-ad
+    {
+        max-width: 100%;
+        width: 100%;
+        margin-top: 10px !important;
+    }
+    .inline-ad .inline-ad .inline-ad button {
+        width: 100%;
+    }
+    ul.ftr-list li:last-child {
+        width: 100%;
+    }
+    ul.ftr-list {
+        text-align: left;
+    }
+    .img-block, .text-block {
+        width: 100%;
+        display: block;
+    }
+    .post-sale h5 {
+        width: 100%;
+    }
+    .img-block {
+        text-align: center;
+    }
+    .sell-trade input, .sell-trade .btn-serch, .sell-trade select {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+    .sell-trade .input-box {
+        width: 100%;
+    }
+    .all-step li {
+        width: 43%;
+        margin-left: 11px;
+    }
+    .f-bg {
+        padding: 28px 0;
+        line-height: 21px;
+    }
+    ul.ftr-list li {
+        width: 100%;
+        line-height: 203%;
+        text-align: center;
+    }
+    .inline-ad button {
+        display: block;
+        width: 100%;
+    }
+    .inline-ad button a {
+        float: none !important;
+        text-align: center;
+        width: 100%;
+    }
+    .inner-content {
+        margin-top: 0px;
+    }
+    h4.ng-binding{
+        font-size: 16px;
+        padding:10px 15px; 
+    }
+    .input-box select{width:100%;}
+    .sell-trade .btn-serch{width:100% !important;}
+    .sell-trade  .btn-serch button{width:100%;}
+    .post-left, .post-right{width: 100%; display: block; }
+    .post-right{ padding:20px 0 10px;}
+    .post-sale h4{padding:8px 0;}
+
+}
+
+@media only screen and (max-width: 480px) {
+	
+	.contact-detail-ul li h4{font-size:14px; padding-bottom: 0px;}
+	.contact-detail-ul li {padding-bottom:0px !important;}
+	
+
+    .input-group.bp-city-search.col-sm-12.col-md-5{ width: 100%; float: none; margin-top: 10px;} 
+
+    .sell-trade{margin-top: 30px;}
+
+    .bp-country-wrapper {
+
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+    .location-area.row .col-sm-6 {
+        width: 100%;
+        float: none;
+        padding-bottom: 15px;
+        text-align: left;
+    }
+    .location-area {
+        margin-top: 40px;
+    }
+    .heading h3 {
+        padding: 14px 18px 7px;
+        font-size: 20px;
+    }
+    .form-control.ng-pristine.ng-untouched.ng-valid.ng-not-empty {
+        margin-top: 7px;
+    }
+    .all-step li {
+        width: 90%;
+    }
+    .container.ng-scope {
+        padding: 0;
+    }
+    .heading-txt.ng-binding {
+        margin-left: 20px;
+    }
+    .text-hedc.ng-binding {
+        margin: 15px;
+    }
+    .sell-trade .input-box {
+        width:100%;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+    }
+    .input-box select {
+        width: 100% !important;
+    }
+    button#searchButton {
+        margin-top: 0px;
+        margin-left:0px;
+    }
+    .inner-content {
+        margin-top: 0px;
+    }
+    .container.ng-scope {
+        padding: 0 10px;
+    }
+    .bg-top.row {
+        margin: 0px;
+    }
+    .form-row .col-sm-4, .form-row .col-sm-8 {
+        width: 100%;
+        float: none;
+    }
+    .form-row input[type="file"], .form-row .inline-block {
+        width: 100%;
+    }
+    .nam {
+        width: 35%;
+    }
+    .inline-ad button {
+        padding:5px 20px;
+        width: 100%;
+        text-align: center;
+    }
+    .inline-ad button a {
+        display: block;
+        float: none !important;
+    }
+    .all-step li {
+        margin-left: 0px;
+    }
+    .signup-check .checkbox-span {
+        width: 90%;
+        vertical-align: top;
+    }
+    .nam {
+        width: 100%;
+    }
+    .form-row select {
+        margin: 7px 0;
+        width: 100%;
+    }
+    .ng-scope .row.ng-scope {
+        margin: 0px;
+    }
+    .post-sale h3 {
+        margin-top: 0px;
+    }
+    .post-add {
+        padding: 20px 0;
+    }
+    .text-center.logo {
+        margin-bottom: 25px;
+    }
+    .location-area.row .col-sm-6 {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:408px) {
+    .location-area.row .col-sm-6 {
+        width: 100%;
+        text-align: left;
+    }
+    .loca-choose.ng-scope {
+        font-size: 16px;
+    }
+    .market-table td:before {
+        width: 100%;
+    }
+    .market-table tbody td {
+        padding-left: 6px !important;
+        padding-top: 25px !important;
+        text-align: left;
+    }
+    .market-table tbody td:last-child {
+        padding-top: 0px !important;
+    }
+    .location-area {
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 354px) {
+    .bp-country-wrapper {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+    .input-box select {
+        width: 68%;
+    }
+    input[type="file"] {
+        width: 100%;
+    }
+    .input-box select {
+        width: 69%;
+    }
+    .sell-trade .btn-serch.text-center {
+        margin-left:0px;
+    }
+    .all-form .button {
+        margin-right: 0 !important;
+        padding: 5px 12px;
+    }
+    .button-row .button {
+        margin-right: 0 !important;
+        padding: 5px 12px;
+    }
+}
+@media only screen and (max-width:480px) {
+    .post-sale h5{font-size: 15px;}
+    .logo a {
+        display: inline-block;
+        max-width: 150px;
+        margin: 0px auto;
+        text-align: center;
+    }
+    .logo a img {
+        max-width: 40px;
+    }
+    .logo h3 {
+        font-size: 23px;
+    }
+    .opent-btn {
+        font-size: 15px;
+        top: 65px;
+    }
+}
+
+/*left navigation css E*/
+
+
+/*3-4-17*/
+@media only screen and (max-width:360px) {
+	iframe .rc-anchor-normal { width: 245px; position: relative !important;}
+	iframe .rc-anchor-normal .rc-anchor-content{  width: 155px !important;}
+	iframe .rc-anchor-normal .rc-anchor-checkbox-label{width:100px !important;}
+	iframe .rc-anchor-normal .rc-anchor-pt{width: 90% !important;}
+}
+
+.login-link {
+    margin: 0 10px;
+    display: inline-block;
+}
