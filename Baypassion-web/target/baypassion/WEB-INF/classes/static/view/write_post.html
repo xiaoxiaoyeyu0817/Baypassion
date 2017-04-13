@@ -131,11 +131,13 @@
                     </div>
                 </div>                
                 <div ng-hide="{{isMultiCity}}" >
+                <!--  
                     <div class="row form-row">
                         <div class="col-sm-12">
                             <p class="Upgrade-text">Upgrades (Keep your ad near the top by purchasing upgrades.)</p>
                         </div>
                     </div>
+                    
                     <div class="row form-row">
                         <div class="col-sm-4">
                             <label>Move Ad to Top of Listings</label>
@@ -175,7 +177,7 @@
                             <label>Add Nearby Cities <lable ng-if="showAllCityPrice">for $ {{allCityPrice}}</lable></label>
                         </div>
                         <div class="col-sm-4">
-                            <label class="checkbox signup-check" ng-repeat="city in cities"> <input type="checkbox" ng-model="city.isSelect" ng-disabled="city.isInitial" ng-change="selectedCities()" /> <span class="checkbox-span">{{city.cityName}} -${{cityPrice}}</span>
+                            <label class="checkbox signup-check" ng-repeat="city in cities"> <input type="checkbox" ng-model="city.isSelect" ng-disabled="city.isInitial" ng-change="selectedCities()" /> <span class="checkbox-span">{{city.cityName}} -${{city.cityPrice}}</span>
                             </label>
                         </div>
                     </div>
@@ -251,6 +253,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="row form-row">
                     <div class="col-sm-4">
                         <label>Sponsor Ad</label>
@@ -263,6 +266,7 @@
                         </label>
                     </div>
                 </div>
+                -->
                 <button class="btn btn-lg btn-primary btn-block" >Continue</button>
                 <div class="row">
                     <div class="col-sm-12">

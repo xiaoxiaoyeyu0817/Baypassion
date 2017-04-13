@@ -3,19 +3,19 @@
             var interceptor = ['$q', '$rootScope', function ($q, $rootScope) {
                     var service = {
                         'request': function (config, data, a) {
-                            angular.element(document.getElementById("loader")).css({display: "block"});
+                            //angular.element(document.getElementById("loader")).css({display: "block"});
                             return config;
                         },
                         "response": function (config) {
-                            angular.element(document.getElementById("loader")).css({display: "none"});
+                            //angular.element(document.getElementById("loader")).css({display: "none"});
                             return config;
                         },
                         "responseError": function (config) {
-                            angular.element(document.getElementById("loader")).css({display: "none"});
+                            //angular.element(document.getElementById("loader")).css({display: "none"});
                             return config;
                         },
                         "requestError": function (config) {
-                            angular.element(document.getElementById("loader")).css({display: "none"});
+                            //angular.element(document.getElementById("loader")).css({display: "none"});
                             return config;
                         }
                     };

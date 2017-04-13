@@ -52,7 +52,8 @@
                     stateCost = 0;
                     angular.forEach(state.city, function (city, key) {
                         if (city.isSelect) {
-                            stateCost += .70;
+                        	//0.7 for every city.
+                            stateCost += .00;
                             selectedCity.push(city.cityId);
                         }
                     });
