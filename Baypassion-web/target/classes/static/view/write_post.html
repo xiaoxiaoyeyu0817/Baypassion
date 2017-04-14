@@ -9,6 +9,7 @@
         </ul>
     </div>
     <div class="all-form">
+    
         <div class="form-signin" ng-show="step.step1.current">
             <form name="form" ng-submit="continue('step2')" novalidate="">
                 <div class="row form-row">
@@ -114,7 +115,9 @@
                     <div class="col-sm-8">
                         <div class="brows-btn inline-block">
                             <p class="inline-block">Max length is 30 sec or 15mb.</p>
-                            <!-- 							<input type = "file" sh-upload = "myFile2" form="uploadForm" class="form-control" name="pic2" min-size="" max-size=""  min="2" max="4" extn="jpg,png" multiple=""/> -->
+                            <!-- 
+                            <input type = "file" sh-upload = "myFile2" form="uploadForm" class="form-control" name="pic2" min-size="" max-size=""  min="2" max="4" extn="jpg,png" multiple=""/> 
+                            -->
                             <input type="file" sh-upload="addPost.video" form="form" target="bpUploadedVideo" video="loadedVideo" value="Choose Audio" class="button inline-block" name="video" max-size="15360" />
                             <p class="error" ng-if="form.video.$error.maxFileSize">File is exceeding maximum file size.</p>
                             <p class="error" ng-if="form.video.$error.maxSize">File is exceeding maximum file size.</p>
@@ -171,7 +174,11 @@
                             </label>
                         </div>
                     </div>
+                    -->
+                    </div>
+                    <!-- 
                     <lable class="error" ng-if="minCityPirce">Please add upgrades to have a minimum purchase of $0.99</lable>
+                    -->
                     <div class="row form-row">
                         <div class="col-sm-4">
                             <label>Add Nearby Cities <lable ng-if="showAllCityPrice">for $ {{allCityPrice}}</lable></label>
@@ -181,6 +188,7 @@
                             </label>
                         </div>
                     </div>
+                    <!-- 
                     <div class="row form-row">
                         <div class="col-sm-4">
                             <label>Auto Repost Ad</label>
@@ -277,6 +285,7 @@
                 </div>
             </form>
         </div>
+       
         <div class="step-2" ng-show="step.step2.current">
             <div class="row">
                 <div class="col-sm-12">
@@ -346,6 +355,8 @@
                 </div>                
             </div>
         </div>
+        
+        
         <div class="step-3" ng-if="step.step3.current">
             <div class="row">
                 <div class="col-sm-12">

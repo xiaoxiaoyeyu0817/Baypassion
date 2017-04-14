@@ -49,7 +49,7 @@
         	$scope.captchaError = false;
         	$scope.captcha = 
         	{
-        			key: '6LfddRkUAAAAALXtbsIT0lWCujLdu7uZVzN7Fp1v'
+        			key: '6LfjBx0UAAAAAD6l3QJp7bOnVRbfZHOUz8wkpRlZ'
         	};
         	$scope.setCaptchaResponse = function (response) 
         	{

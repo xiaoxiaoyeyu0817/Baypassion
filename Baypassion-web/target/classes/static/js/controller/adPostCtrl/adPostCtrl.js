@@ -159,8 +159,8 @@
                 }
 
                 if (!$scope.isLive) {
-                    $scope.addPost.title = "title";
-                    $scope.addPost.description = "description";
+                    $scope.addPost.title = "";
+                    $scope.addPost.description = "";
                     $scope.addPost.emailId = "email@email.com";
                     $scope.addPost.confirmEmail = "email@email.com";
                     $scope.addPost.termOfUse = true;
@@ -173,7 +173,7 @@
                     $scope.addPost.confirmEmail = $scope.checkEmail;
                 }
 
-                $scope.cityPrice = 0.25;
+                $scope.cityPrice = 0.00;
                 $scope.selectedCities = function () {
                     $scope.countCity = 0;
                     $scope.numberTimes = 1.02;
@@ -184,7 +184,7 @@
                         if (value.isSelect && key > 0)
                         {
                             $scope.numberTimes = $scope.numberTimes + 1.50;
-                            $scope.sponsePrice = $scope.sponsePrice + 0.25;
+                            $scope.sponsePrice = $scope.sponsePrice + 0.00;
                         }
                         if (value.isSelect)
                         {
@@ -522,7 +522,7 @@
                 $scope.captchaResponse = null;
                 $scope.captchawidgetId = null;
                 $scope.captcha = {
-                    key: '6LfddRkUAAAAALXtbsIT0lWCujLdu7uZVzN7Fp1v'
+                    key: '6LfjBx0UAAAAAD6l3QJp7bOnVRbfZHOUz8wkpRlZ'
                 };
                 $scope.setCaptchaResponse = function (response) {
                     console.info('Response available', response);

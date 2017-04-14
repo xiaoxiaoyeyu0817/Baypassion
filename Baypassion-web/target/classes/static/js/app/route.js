@@ -22,6 +22,7 @@
                     return service;
                 }
             ];
+            //$locationProvider.html5Mode(true);
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:image\//);
             $httpProvider.interceptors.push(interceptor);//*/
 
