@@ -628,7 +628,7 @@
                 adPostService.getAllPostByCityIdAndCategoryItemId(cityId, $scope.subCat).then(function (data) {
                     $scope.postad = [];
                     angular.forEach(data,function(value,key){
-                    	value.postedOn = value.postedOn.substring(0,11); //MMM dd,yyyy
+                    	value.postedOn = value.postedOn.substring(0,12); //MMM dd,yyyy
                     	this.push(value);
                     },$scope.postad);
                     if (data && angular.isArray(data)) {
