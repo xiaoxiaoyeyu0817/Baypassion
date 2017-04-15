@@ -498,7 +498,7 @@
                     $scope.matchEmail();
                     if (!$scope.confirmMailError && $scope.form.$valid) {
                         $scope.step.step2.isDirt = true;
-                        $scope.addPost.postedOn = $filter('date')(new Date(), 'medium');
+                        $scope.addPost.postedOn = $filter('date')(new Date(), 'MMM dd,yyyy hh:mm:ss a ');
                         if ($scope.totalPrice > 0) {
                             $scope.showPaypal = true;
                             $scope.adPrice = $scope.totalPrice;
@@ -619,20 +619,40 @@
             $scope.paginationOpt = {
                 currenPage: "",
                 totlaItems: "",
-                itemsPerPage: 5,
+                itemsPerPage: 75,
                 maxSize: 15,
                 rotate: true,
                 boundaryLinks: true
             }//bayPassion 31-3-17 4:00
             $scope.getAllPostByCity = function (cityId) {
                 adPostService.getAllPostByCityIdAndCategoryItemId(cityId, $scope.subCat).then(function (data) {
-                    $scope.postad = data;
+                    $scope.postad = [];
+                    angular.forEach(data,function(value,key){
+                    	value.postedOn = value.postedOn.substring(0,11); //MMM dd,yyyy
+                    	this.push(value);
+                    },$scope.postad);
                     if (data && angular.isArray(data)) {
                         $scope.paginationOpt.totlaItems = $scope.postad.length;
-                        $scope.currentPostads = $scope.postad.slice(0, $scope.paginationOpt.itemsPerPage - 1);
+                        $scope.currentPostads=[];
+                        $scope.postad.slice(0, $scope.paginationOpt.itemsPerPage - 1).forEach(function(ad){
+                        	var flag = false;
+                        	$scope.currentPostads.forEach(function(cAd){
+                        		if(cAd.postedOn == ad.postedOn){
+                        			cAd.ads.push(ad);
+                        			flag=true;
+                        			return;
+                        		}
+                        	});
+                        	if(!flag){
+                        		$scope.currentPostads.push({postedOn:ad.postedOn,ads:[ad]});
+                        	}
+                        	
+                        });
+                        console.log($scope.currentPostads);
                     }
                 });
             }
+
 
             $scope.pageChanged = function () {
                 var endIndex = (($scope.paginationOpt.currenPage) * $scope.paginationOpt.itemsPerPage);
@@ -643,10 +663,42 @@
                     if (startIndex < 0) {
                         startIndex = 0;
                     }
-                    $scope.currentPostads = $scope.postad.slice(startIndex, endIndex);
+                    //$scope.currentPostads = $scope.postad.slice(startIndex, endIndex);
+                    $scope.currentPostads=[];
+                    $scope.postad.slice(startIndex, endIndex).forEach(function(ad){
+                    	var flag = false;
+                    	$scope.currentPostads.forEach(function(cAd){
+                    		if(cAd.postedOn == ad.postedOn){
+                    			cAd.ads.push(ad);
+                    			flag=true;
+                    			return;
+                    		}
+                    	});
+                    	if(!flag){
+                    		$scope.currentPostads.push({postedOn:ad.postedOn,ads:[ad]});
+                    	}
+                    	
+                    });
+                    console.log($scope.currentPostads);
                 } else {
                     startIndex -= 1;
-                    $scope.currentPostads = $scope.postad.slice(startIndex, $scope.paginationOpt.totlaItems - 1);
+                    //$scope.currentPostads = $scope.postad.slice(startIndex, $scope.paginationOpt.totlaItems - 1);
+                    $scope.currentPostads=[];
+                    $scope.postad.slice(startIndex, $scope.paginationOpt.totlaItems - 1).forEach(function(ad){
+                    	var flag = false;
+                    	$scope.currentPostads.forEach(function(cAd){
+                    		if(cAd.postedOn == ad.postedOn){
+                    			cAd.ads.push(ad);
+                    			flag=true;
+                    			return;
+                    		}
+                    	});
+                    	if(!flag){
+                    		$scope.currentPostads.push({postedOn:ad.postedOn,ads:[ad]});
+                    	}
+                    	
+                    });
+                    console.log($scope.currentPostads);
                 }
             }
 

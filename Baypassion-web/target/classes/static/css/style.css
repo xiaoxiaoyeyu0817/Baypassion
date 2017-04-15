@@ -323,6 +323,12 @@ h4.text-hedc {
     padding: 9px 11px;
     color: #524e4e;
 }
+a.text-hedc {
+    background: #e1e1e1;
+    border: 2px solid #009bb6;
+    padding: 9px 11px;
+    color: #524e4e;
+}
 
 .text-img {
     width: 160px;
