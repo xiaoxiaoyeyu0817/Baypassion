@@ -840,7 +840,7 @@ input, button, select, textarea {
 .post-right {
     display: inline-block;
     vertical-align: top;
-    width: 60%;
+    width: 100%;
     padding-left: 10px;
 }
 .post-right .text-block {

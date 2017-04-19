@@ -411,6 +411,12 @@
                         // $location.path("/login");
                     }
                 }
+                $scope.listUserPosts = function (userId)
+                {
+                	$location.path('/userPost/userId-'+userId);
+                	
+                }
+                
                 $scope.adPostObj = demoService.getPostId();
                 $scope.finalStep = function (step) {
                     adPostService.confirmPost($scope.postId).then(function (data) {
@@ -735,7 +741,12 @@
             /* Call API for getting all post */
             $scope.viewAllPost = function () {
                 adPostService.getAllPostByCategoryItem($scope.subCat).then(function (data) {
-                    $scope.postad = data;
+                	var data = adPostService.getAllPostByUserId(userId);
+                    $scope.postad = [];
+                    angular.forEach(data,function(value,key){
+                    	value.postedOn = value.postedOn.substring(0,12); //MMM dd,yyyy
+                    	this.push(value);
+                    },$scope.postad);
                 });
             }
 
@@ -760,7 +771,8 @@
                 adPostService.setPostId(adPostId);
                 $location.path('/titleDescription');
             }
-
+            
+           
 // search function
             $scope.categoriesInfo =
                     {selectedCategoryId: "",
@@ -779,7 +791,12 @@
                 });
                 categoryService.searchKeywordForCategoryItem($scope.categoriesInfo.selectedCategoryId, $scope.categoriesInfo.searchKeyword, param.cityId).then(function (data)
                 {
-                    $scope.postad = data;
+                	var data = adPostService.getAllPostByUserId(userId);
+                    $scope.postad = [];
+                    angular.forEach(data,function(value,key){
+                    	value.postedOn = value.postedOn.substring(0,12); //MMM dd,yyyy
+                    	this.push(value);
+                    },$scope.postad);
                 });
             }
 

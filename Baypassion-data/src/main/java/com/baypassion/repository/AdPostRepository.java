@@ -33,5 +33,5 @@ public interface AdPostRepository extends JpaRepository<AdPost, Integer> {
     /**
      * Get user post by user id.
      */
-    public List<AdPost> findByUserId(Integer userId);
+    public List<AdPost> findByUserIdOrderByAdPostIdDesc(Integer userId);
 }

@@ -37,6 +37,8 @@ public interface AdPostService {
      * Get user post by user id.
      */
     public List<AdPost> getUserPost(Integer userId);
+    
+    public List<AdPost> getUserPostList(Integer userId);
 
     /**
      * Approve post by admin.

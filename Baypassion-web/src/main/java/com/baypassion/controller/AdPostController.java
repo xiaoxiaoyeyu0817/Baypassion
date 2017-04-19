@@ -85,7 +85,7 @@ public class AdPostController {
      */
     @RequestMapping(value = "/userPost", method = RequestMethod.GET)
     public List<AdPost> getUserPost(@RequestParam Integer userId) {
-        return adPostService.getUserPost(userId);
+        return adPostService.getUserPostList(userId);
 
     }
 

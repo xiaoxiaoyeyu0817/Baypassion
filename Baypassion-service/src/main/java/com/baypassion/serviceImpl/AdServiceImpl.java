@@ -66,6 +66,8 @@ public class AdServiceImpl implements AdPostService {
         AdPost post = adPostRepository.findOne(adPostId);
         if (!post.getPostImages().isEmpty()) {
             post = setPerticularPostImages(post);
+        }else{
+        	//FIXME
         }
         return post;
     }
@@ -96,6 +98,8 @@ public class AdServiceImpl implements AdPostService {
         for (AdPost post : allPosts) {
             if (!post.getPostImages().isEmpty()) {
                 post = setPostImages(post);
+            }else{
+            	//FIXME
             }
             updatedList.add(post);
         }
@@ -108,10 +112,26 @@ public class AdServiceImpl implements AdPostService {
 
     public List<AdPost> getUserPost(Integer userId) {
         List<AdPost> updatedList = new ArrayList<AdPost>();
-        List<AdPost> allPosts = adPostRepository.findByUserId(userId);
+        List<AdPost> allPosts = adPostRepository.findByUserIdOrderByAdPostIdDesc(userId);
         for (AdPost post : allPosts) {
             if (!post.getPostImages().isEmpty()) {
                 post = setPerticularPostImages(post);
+            }else{
+            	//FIXME
+            }
+            updatedList.add(post);
+        }
+        return updatedList;
+    }
+    
+    public List<AdPost> getUserPostList(Integer userId){
+    	List<AdPost> updatedList = new ArrayList<AdPost>();
+        List<AdPost> allPosts = adPostRepository.findByUserIdOrderByAdPostIdDesc(userId);
+        for (AdPost post : allPosts) {
+            if (!post.getPostImages().isEmpty()) {
+                post = setPerticularPostImages(post);
+            }else{
+            	//FIXME
             }
             updatedList.add(post);
         }
@@ -157,6 +177,8 @@ public class AdServiceImpl implements AdPostService {
                 if ((post.getTitle().contains(word)) || (post.getDescription().contains(word))) {
                     if (!post.getPostImages().isEmpty()) {
                         post = setPostImages(post);
+                    }else{
+                    	//FIXME
                     }
                     posts.add(post);
                 }
@@ -174,6 +196,8 @@ public class AdServiceImpl implements AdPostService {
             if ((post.getTitle().contains(word)) || (post.getDescription().contains(word))) {
                 if (!post.getPostImages().isEmpty()) {
                     post = setPostImages(post);
+                }else{
+                	//FIXME
                 }
                 posts.add(post);
             }
@@ -226,6 +250,8 @@ public class AdServiceImpl implements AdPostService {
         adPost = SaveOrUpdate(adPost);
         if (!adPost.getPostImages().isEmpty()) {
             adPost = setPerticularPostImages(adPost);
+        }else{
+        	//FIXME
         }
         return adPost;
     }

@@ -84,6 +84,16 @@
                         return param;
                     }
                 }
+            }).when('/userPost/:userId',{
+            	templateUrl:'view/viewPost.html',
+            	controller:'userPostListCtrl',
+            	resolve:{
+            		param:function($location,$rootScope){
+            			var param = fetchReloadParam($location,["userId"]);
+            			setReloadParam(param,$rootScope.routeParam);
+            			return param;
+            		}
+            	}
             }).when('/renewAds', {
                 templateUrl: 'view/renewAds.html',
                 controller: 'manageAdsCtrl'
