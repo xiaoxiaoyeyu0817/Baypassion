@@ -30,7 +30,7 @@
 			<ul>
 				<li ng-repeat="currentAds in currentPostads">
 					<h5>{{currentAds.postedOn}}</h5>
-					<table>
+					<table style="width:100%">
 					<tr ng-repeat="post in currentAds.ads" style="height:45px;width:100%">
 						<td>
 						<div ng-repeat="image in post.postImages" class="post-left">
