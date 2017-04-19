@@ -17,9 +17,10 @@
                         <label id="bpFmTitle">Title <span class="bp-required">*</span></label>
                     </div>
                     <div class="col-sm-8 bp-form-title" >
-                        <textarea  ui-tinymce="tinymceOptions" rows="1" id="adPostTitle" class="form-control input-design" ng-model="addPost.title" placeholder="Title" name="title"  ng-change="matchProhibited()" required>Title </textarea>
+                        <textarea  ui-tinymce="tinymceOptions" rows="1" id="adPostTitle" class="form-control input-design" ng-model="addPost.title" placeholder="Title" name="title"  ng-change="contentChange()" required>Title </textarea>
                         <p class="error" ng-if="form.title.$error.required && form.$submitted">Title is required.</p>
                         <p class="error" ng-if="titleProhibited">Title contains Prohibited word {{titleProhibitedWord}}.</p>
+                        <p class="error" ng-if="titleLengthOverMax">Reached limit! max length is 254</p>
                     </div>
                 </div>
                 <div class="row form-row">
@@ -30,9 +31,10 @@
                         <!-- 						<div class="button-row"> -->
                         <!-- 							<input class="button" value="Bold" type="button" ng-click="ShowSelection('B')" /> <input class="button" value="Italic" type="button" ng-click="ShowSelection('I')" /> <input class="button" value="Underline" type="button" ng-click="ShowSelection('U')" /> -->
                         <!-- 						</div>						 -->
-                        <textarea ng-init="tinymceOptions.height = 165;"  ui-tinymce="tinymceOptions" rows="10" id="adPostDesc" class="form-control input-design" ng-model="addPost.description" placeholder="Description" name="description"  ng-change="matchProhibited()" required>Description </textarea>
+                        <textarea ui-tinymce="tinymceOptions" rows="10" id="adPostDesc" class="form-control input-design" ng-model="addPost.description" placeholder="Description" name="description"  ng-change="contentChange()" required>Description </textarea>
                         <p class="error" ng-if="form.description.$error.required && form.$submitted">Description is required.</p>
                         <p class="error" ng-if="descriptionProhibited">Description contains Prohibited word {{descriptionProhibitedWord}}.</p>
+                        <p class="error" ng-if="descriptionLengthOverMax">Reached limit! max length is 254</p>
                     </div>
                 </div>
                 <div class="row form-row">
@@ -404,7 +406,7 @@
                             Thank You
                         </p>
                         <p class="bp-margin-top">
-                            <a ng-href="http://sample-env-1.7tmkmg5jhb.ap-southeast-2.elasticbeanstalk.com">Baypassion</a></p>
+                            <a ng-href="http://baypassion.com">Baypassion</a></p>
 
                         <!--   <p class="bp-margin-top">
                               Purchase : <a  ng-href="#autoRepost">auto repost </a><a ng-href="#nearbyCity">nearby cities </a>

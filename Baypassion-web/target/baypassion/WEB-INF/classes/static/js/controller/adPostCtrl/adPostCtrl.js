@@ -475,6 +475,35 @@
                     }
                     return $scope.titleProhibited || $scope.titleProhibited;
                 }
+                
+                $scope.contentChange = function(){
+                	var ProhibitedObj = $scope.matchProhibitedWords($scope.addPost.title);
+                    $scope.titleProhibitedWord = ProhibitedObj.word;
+                    if (ProhibitedObj.flag) {
+                        $scope.titleProhibited = true;
+                    } else {
+                        $scope.titleProhibited = false;
+                    }
+                    ProhibitedObj = $scope.matchProhibitedWords($scope.addPost.description);
+                    $scope.descriptionProhibitedWord = ProhibitedObj.word;
+                    if (ProhibitedObj.flag) {
+                        $scope.descriptionProhibited = true;
+                    } else {
+                        $scope.descriptionProhibited = false;
+                    }
+                    
+                    if($scope.addPost.title && $scope.addPost.title.length > 254){
+                    	$scope.titleLengthOverMax = true;
+                    }else{
+                    	$scope.titleLengthOverMax = false;
+                    }
+                    
+                    if($scope.addPost.description && $scope.addPost.description.length > 254){
+                    	$scope.descriptionLengthOverMax = true;
+                    }else{
+                    	$scope.descriptionLengthOverMax = false;
+                    }
+                }
 
                 $scope.continue = function (step)
                 {

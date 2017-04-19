@@ -30,19 +30,22 @@
 			<ul>
 				<li ng-repeat="currentAds in currentPostads">
 					<h5>{{currentAds.postedOn}}</h5>
-					<div ng-repeat="post in currentAds.ads">
-						<div class="post-left">
-							<div ng-repeat="image in post.postImages">
+					<table>
+					<tr ng-repeat="post in currentAds.ads" style="height:45px;width:100%">
+						<td>
+						<div ng-repeat="image in post.postImages" class="post-left">
 								<div class="img-block">
 									<img src="{{image.imageName}}" alt="">
 								</div>
 							</div>
-						</div>
-						<div class="post-right">
+						</td>
+						<td><div class="post-right">
 							<a ng-click="titleDesciption(post.adPostId)"
 								ng-bind-html="post.title"></a>
 						</div>
-					</div>
+						</td>
+					</tr>
+					</table>
 				</li>
 			</ul>
 		</div>

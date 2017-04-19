@@ -833,14 +833,15 @@ input, button, select, textarea {
 .post-left {
     display: inline-block;
     vertical-align: top;
-    width: 25%;
+    height:45px;
+    width:45px;
 }
-.post-left .img-block{width: 100%;}
+.post-left .img-block{height:45px;width:45px;}
 .post-right {
     display: inline-block;
     vertical-align: top;
     width: 60%;
-    padding-left: 50px;
+    padding-left: 10px;
 }
 .post-right .text-block {
     margin-top: 15px;
