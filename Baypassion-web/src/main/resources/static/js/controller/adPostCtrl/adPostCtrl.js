@@ -741,7 +741,6 @@
             /* Call API for getting all post */
             $scope.viewAllPost = function () {
                 adPostService.getAllPostByCategoryItem($scope.subCat).then(function (data) {
-                	var data = adPostService.getAllPostByUserId(userId);
                     $scope.postad = [];
                     angular.forEach(data,function(value,key){
                     	value.postedOn = value.postedOn.substring(0,12); //MMM dd,yyyy
@@ -791,7 +790,6 @@
                 });
                 categoryService.searchKeywordForCategoryItem($scope.categoriesInfo.selectedCategoryId, $scope.categoriesInfo.searchKeyword, param.cityId).then(function (data)
                 {
-                	var data = adPostService.getAllPostByUserId(userId);
                     $scope.postad = [];
                     angular.forEach(data,function(value,key){
                     	value.postedOn = value.postedOn.substring(0,12); //MMM dd,yyyy
