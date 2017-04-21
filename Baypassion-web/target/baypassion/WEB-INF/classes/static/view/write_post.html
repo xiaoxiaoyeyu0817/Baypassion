@@ -20,7 +20,7 @@
                         <textarea  ui-tinymce="tinymceOptions" rows="1" id="adPostTitle" class="form-control input-design" ng-model="addPost.title" placeholder="Title" name="title"  ng-change="contentChange()" required>Title </textarea>
                         <p class="error" ng-if="form.title.$error.required && form.$submitted">Title is required.</p>
                         <p class="error" ng-if="titleProhibited">Title contains Prohibited word {{titleProhibitedWord}}.</p>
-                        <p class="error" ng-if="titleLengthOverMax">Reached limit! max length is 254</p>
+                        <!--  <p class="error" ng-if="titleLengthOverMax">Reached limit! max length is 254</p>-->
                     </div>
                 </div>
                 <div class="row form-row">
@@ -34,7 +34,7 @@
                         <textarea ui-tinymce="tinymceOptions" rows="10" id="adPostDesc" class="form-control input-design" ng-model="addPost.description" placeholder="Description" name="description"  ng-change="contentChange()" required>Description </textarea>
                         <p class="error" ng-if="form.description.$error.required && form.$submitted">Description is required.</p>
                         <p class="error" ng-if="descriptionProhibited">Description contains Prohibited word {{descriptionProhibitedWord}}.</p>
-                        <p class="error" ng-if="descriptionLengthOverMax">Reached limit! max length is 254</p>
+                        <!-- <p class="error" ng-if="descriptionLengthOverMax">Reached limit! max length is 254</p> -->
                     </div>
                 </div>
                 <div class="row form-row">

@@ -481,7 +481,7 @@
                     }
                     return $scope.titleProhibited || $scope.titleProhibited;
                 }
-                
+               
                 $scope.contentChange = function(){
                 	var ProhibitedObj = $scope.matchProhibitedWords($scope.addPost.title);
                     $scope.titleProhibitedWord = ProhibitedObj.word;
@@ -498,7 +498,7 @@
                         $scope.descriptionProhibited = false;
                     }
                     
-                    if($scope.addPost.title && $scope.addPost.title.length > 254){
+             /*       if($scope.addPost.title && $scope.addPost.title.length > 254){
                     	$scope.titleLengthOverMax = true;
                     }else{
                     	$scope.titleLengthOverMax = false;
@@ -509,6 +509,7 @@
                     }else{
                     	$scope.descriptionLengthOverMax = false;
                     }
+                    */
                 }
 
                 $scope.continue = function (step)
