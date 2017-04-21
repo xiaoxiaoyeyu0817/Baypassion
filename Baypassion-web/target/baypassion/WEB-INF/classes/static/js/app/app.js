@@ -1,5 +1,5 @@
 (function () {
-    angular.module('baypassionApp', ['sh', 'ngAnimate', 'ngRoute', 'ngSanitize', 'ngStorage', 'paypal-button', 'vcRecaptcha', 'ui.tinymce', 'dropzone']);
+    angular.module('baypassionApp', ['sh', 'ngAnimate', 'ngRoute', 'ngSanitize', 'ngStorage', 'paypal-button', 'vcRecaptcha', 'ui.tinymce', 'dropzone','ui.bootstrap']);
 })();
 
 function setReloadParam(param, rootParam) {

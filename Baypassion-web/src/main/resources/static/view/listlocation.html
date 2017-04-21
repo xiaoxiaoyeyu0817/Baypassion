@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="responsive-col col-md-3 col-sm-6"
 		ng-repeat="category in categories">
-		<a ng-if="category.categoryName=='escorts'" href="http://baypassion.net"><h4 class="text-hedc">{{category.categoryName}}</h4></a>
+		<a ng-if="category.categoryName=='escorts'" ng-click="open()" ><h4 class="text-hedc">{{category.categoryName}}</h4></a>
 		<h4 class="text-hedc"ng-if="category.categoryName!='escorts'">{{category.categoryName}}</h4>
 		<ul class="inline-list" ng-if="category.categoryName!='escorts'">
 			<li class="cursorPointer"
