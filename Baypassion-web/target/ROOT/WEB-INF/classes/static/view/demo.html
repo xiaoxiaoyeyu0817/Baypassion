@@ -1,0 +1,32 @@
+<div class="col-sm-12"><br>
+    <div align="center">
+        <table class="table market-table" ng-if="showPost"> 
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Market</th>
+                    <th>Ad Title</th>
+                    <th>Category</th>
+                    <th>Type</th>
+                    <th>Status</th> 
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="adPost in adPosts">
+                    <td>{{adPost.postedOn}}</td>
+                    <td>www.baypassion.com</td>
+                    <td ng-bind-html="adPost.title"></td>
+                    <td>{{adPost.categoryItems.categoryItemName}}</td>
+                    <td>Ad</td>
+                    <td>{{adPost.status}}</td>
+
+                    <td ng-if="adPost.status == 'Removed'" ><a href="#renewAds" ng-click="userPost(adPost)">Renew</a></td>
+                    <td ng-if="adPost.status == 'Live'"><a href="#manageAds" ng-click="userPost(adPost)">Manage Ad</a></td>
+                </tr>  
+            </tbody>
+        </table>
+        <h3 ng-if="showPost">{{numberOfPost}} Ads found</h3>
+        <a href="#editUser">Edit Profile</a>
+    </div>
+</div>

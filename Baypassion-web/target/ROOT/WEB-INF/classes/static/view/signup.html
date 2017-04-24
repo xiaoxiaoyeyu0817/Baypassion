@@ -1,0 +1,67 @@
+<div class="inner-content">
+    <div class="login-form">
+        <div class="form-signin">
+            <form name="form" ng-submit="signup()" novalidate>
+                <h2 class="form-signin-heading">Create Account</h2>
+                <input type="text" class="form-control input-design" name="firstName"
+                       ng-model="user.firstName" placeholder="First Name" required="" />	
+                <div ng-show="form.$submitted && form.firstName.$invalid" class="error">
+                    <span ng-show="form.firstName.$error.required">First name required</span>
+                </div>
+                <input type="text" class="form-control input-design" name="lastName"
+                       ng-model="user.lastName" placeholder="Last Name" required="" />	
+                <div ng-show="form.$submitted && form.lastName.$invalid" class="error">
+                    <span ng-show="form.email.$error.required">Last name required</span>
+                </div>      			
+                
+                <input type="email" class="form-control input-design" name="email"
+                       ng-model="user.email" placeholder="Email Address" required="" ng-blur="verifyEmail()"/>				
+                <div ng-show="form.$submitted && form.email.$invalid" class="error">
+                    <span ng-show="form.email.$error.required">Email required</span>
+                    <span ng-show="form.email.$error.email">Invalid email format</span>
+                </div>
+                  <div ng-show="alreadyExists" class="error">
+                    <span>Email Already Exists</span>      					
+                </div>
+
+                <input type="email" class="form-control input-design" name="confirmEmail"
+                       ng-model="user.confirmEmail" placeholder="Confirm Email Address" required="" />
+
+                <div ng-show="form.$submitted && form.confirmEmail.$invalid" class="error">
+                    <span ng-show="form.confirmEmail.$error.required">Confirm email required</span>
+                    <span ng-show="form.confirmEmail.$error.email">Invalid email format</span>
+                </div>    			
+                <div ng-show="form.$submitted && confirmEmailFlag" class="error">
+                    <span>Email not Matched</span>      					
+                </div>
+
+                <input type="password" class="form-control input-design" name="password" 
+                       ng-minlength="8" ng-maxlength="16" ng-model="user.password" placeholder="Password" required="" />						
+                <div ng-show="form.$submitted && form.password.$invalid" class="error">
+                    <span ng-show="form.password.$error.required">Password required</span>      					
+                </div>
+                <div ng-show="form.password.$invalid" class="error">
+                    <span ng-show="form.password.$error.minlength">Password is too short...</span>
+                    <span ng-show="form.password.$error.maxlength">Password is too long...</span>
+                </div>
+
+                <input type="password" class="form-control input-design" name="confirmPassword" 
+                       ng-model="user.confirmPassword" placeholder="Confirm Password" required="" />						
+                <div ng-show="form.$submitted && form.confirmPassword.$invalid" class="error">
+                    <span ng-show="form.confirmPassword.$error.required">Confirm password required</span>
+                </div>
+                <div ng-show="form.$submitted && confirmPasswordFlag" class="error">
+                    <span>Password not Matched</span>      					
+                </div>	
+
+                <label class="checkbox signup-check"> 
+                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> 
+                    <span class="checkbox-span">By creating an account, I agree to the
+                        <a href="#">terms of use</a>.
+                    </span>
+                </label>
+                <input type="submit" value="Create Account" class="btn btn-lg btn-primary btn-block"/> 
+            </form>
+        </div>
+    </div>
+</div>

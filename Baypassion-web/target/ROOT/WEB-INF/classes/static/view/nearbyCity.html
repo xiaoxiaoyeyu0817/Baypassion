@@ -1,0 +1,31 @@
+
+<form name="form" ng-submit="saveAd()" novalidate>
+	<div class="row form-row">
+
+		<div class="col-sm-4">
+			<label>Add Nearby Cities for $ {{allCityPrice}}</label>
+		</div>
+		<div class="col-sm-4">
+			<label class="checkbox signup-check" ng-repeat="city in cities">
+				<input type="checkbox" ng-model="city.isSelect"
+				ng-disabled="city.isInitial" ng-change="selectedCities()" /> <span
+				class="checkbox-span">{{city.cityName}} -${{city.cityPrice}}</span>
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<label class="checkbox signup-check"> <input type="checkbox"
+				value="remember-me" id="rememberMe" name="rememberMe"
+				ng-model="isSelected" /> <span class="checkbox-span"><span
+					class="bp-required">*</span> By placing this ad I agree to the <a
+					href="#">terms of use</a>. </span>
+			</label>
+		</div>
+	</div>
+	<div ng-show="form.$submitted && !isSelected" class="error">
+		<span>Terms is required</span>
+
+	</div>
+	<button class="btn btn-lg btn-primary btn-block">Continue</button>
+</form>

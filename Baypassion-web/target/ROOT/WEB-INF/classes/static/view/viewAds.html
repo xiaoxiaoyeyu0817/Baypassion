@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="step-2">
+        <div class="row">
+            <div class="post-sale col-sm-12 all-post-sale">					
+                <h3 class="bp-border-bottom" ng-bind-html="adPost.title"></h3>                
+                <h4><span ng-bind-html="adPost.description"></span></h4>				                
+                <div class="col-md-6">
+                    <ul class="contact-detail-ul">							                    
+                        <li class="img-block" ng-repeat="image in adPost.postImages">
+                            <img src="{{image.imageName}}" alt="">
+                        </li>
+                        <li>
+                            <h4>Contact : <span>{{adPost.mobileNo}}</span></h4>
+                            </li>
+                                <li>
+                                    <h4>Location : <span>{{adPost.location}}</span></h4>
+                                </li>
+                                <li>
+                                    <h4>Post ID : <span>{{adPost.adPostId}}</span></h4>
+                                </li>
+                                         
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div ng-if="adPost.video">                                                
+                        <video id="bpUploadedVideo" ng-src="{{adPost.video|trustUrl}}" controls></video>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <button class="btn btn-lg btn-primary btn-block" ng-click="email()">email to friend</button>
+            </div>			
+        </div>
+        <!-- <div class="row  post-sale">
+                <div class="col-sm-3">
+                        <button class="btn btn-lg btn-primary btn-block" ng-click="saveAd()">email to friend</button>
+                </div>
+                <div class="col-sm-3"></div>
+        </div> -->
+    </div>
+</div>
