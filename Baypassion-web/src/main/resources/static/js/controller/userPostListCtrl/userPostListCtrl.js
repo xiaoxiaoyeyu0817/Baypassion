@@ -40,6 +40,11 @@
             console.log($scope.currentPostads);
         }
         });
+        $scope.titleDesciption = function (adPostId)
+        {
+            adPostService.setPostId(adPostId);
+            $location.path('/titleDescription');
+        }
         $scope.pageChanged = function () {
             var endIndex = (($scope.paginationOpt.currenPage) * $scope.paginationOpt.itemsPerPage);
             var startIndex = endIndex - $scope.paginationOpt.itemsPerPage;

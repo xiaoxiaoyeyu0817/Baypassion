@@ -73,6 +73,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>baypassion</finalName>
+		<finalName>ROOT</finalName>
 	</build>
 </project>
