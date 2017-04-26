@@ -1612,3 +1612,9 @@ h3.ng-binding{padding:20px 0 10px;}
     margin: 0 10px;
     display: inline-block;
 }
+
+.nav-wrapper {
+    text-align: center;
+    padding: 1em 0;
+    clear: both;
+}

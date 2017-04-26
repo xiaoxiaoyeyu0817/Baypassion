@@ -17,7 +17,9 @@
                         <label id="bpFmTitle">Title <span class="bp-required">*</span></label>
                     </div>
                     <div class="col-sm-8 bp-form-title" >
-                        <textarea  ui-tinymce="tinymceOptions" rows="1" id="adPostTitle" class="form-control input-design" ng-model="addPost.title" placeholder="Title" name="title"  ng-change="matchProhibited()" required>Title </textarea>
+                    	<input type="text" class="form-control input-design" id="adPostTitle" name="title" ng-model="addPost.title" placeholder="Title" ng-change="matchProhibited()"  required />
+                       <!--  <textarea  ui-tinymce="tinymceOptions" rows="1" id="adPostTitle" class="form-control input-design" ng-model="addPost.title" placeholder="Title" name="title"  ng-change="matchProhibited()" required>Title </textarea>
+                         -->
                         <p class="error" ng-if="form.title.$error.required && form.$submitted">Title is required.</p>
                         <p class="error" ng-if="titleProhibited">Title contains Prohibited word {{titleProhibitedWord}}.</p>
                         <!--  <p class="error" ng-if="titleLengthOverMax">Reached limit! max length is 254</p>-->

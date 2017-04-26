@@ -4,10 +4,13 @@
 			'aggrementCtrl',
 			[ '$scope', '$uibModalInstance', '$location',
 					function($scope, $uibModalInstance, $location) {
-						$scope.close = function() {
+						$scope.aggree_close = function() {
 							$uibModalInstance.dismiss('cancel');
 							window.location = "http://baypassion.net";
 						};
+						$scope.disaggree_close = function(){
+							$uibModalInstance.dismiss('cancel');
+						}
 					} ]);
 	angular
 			.module('baypassionApp')
