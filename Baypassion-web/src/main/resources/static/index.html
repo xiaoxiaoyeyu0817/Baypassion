@@ -41,7 +41,7 @@
 }
 
 .black_overlay {
-	display: none;
+	display: block;
 	position: absolute;
 	top: 0%;
 	left: 0%;
@@ -182,7 +182,7 @@
 	<script>
 		$(document).ready(
 				function() {
-					if (window.location.hostname == "localhost") {
+					if (window.location.hostname == "baypassion.net") {
 						function getURLParameter(name) {
 							return decodeURIComponent((new RegExp('[?|&]'
 									+ name + '=' + '([^&;]+?)(&|#|;|$)')
