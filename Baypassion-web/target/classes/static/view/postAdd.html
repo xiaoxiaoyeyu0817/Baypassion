@@ -1,26 +1,38 @@
 <style>
-    .inline-list li {
-        list-style-type: disc;
-    }
-    .contentCss{
-        margin-top: 5%;}
-    </style>
-    <div class="content contentCss" >
-    <div class="row" ng-show = "!IsVisible">
-        <div class="col-md-3 col-sm-6" >
-            <h2><b>Choose a Section</b></h2>
-            <ul class="inline-list">
-                <li class="cursorPointer" ng-repeat="category in categories" ><a  href="#" ng-click="ShowHide(category)">{{category.categoryName}}</a></li>			
-            </ul>
-        </div>
-    </div>
-    <div class="row" ng-show = "IsVisible">
-        <div class="col-md-3 col-sm-6" >
-            <h2><b>Choose a Category</b></h2>
-            <ul class="inline-list">
-                <li class="cursorPointer" ng-repeat="categoryItem in currentObj.categoryItems">			
-                    <a ng-click="savePost(categoryItem,currentObj)" >{{categoryItem.categoryItemName}}</a></li>
-            </ul>
-        </div>
-    </div>
+.inline-list li {
+	list-style-type: disc;
+}
+
+.contentCss {
+	margin-top: 5%;
+}
+</style>
+<div class="content contentCss">
+	<div class="row" ng-show="!IsVisible">
+		<div class="col-md-3 col-sm-6">
+			<h2>
+				<b>Choose a Section</b>
+			</h2>
+			<ul class="inline-list">
+				<div ng-repeat="category in categories">
+					<li class="cursorPointer" ng-if="category.categoryName!='escorts'"><a
+						href="#" ng-click="ShowHide(category)"
+						ng-if="category.categoryName!='escorts'">{{category.categoryName}}</a></li>
+				</div>
+
+			</ul>
+		</div>
+	</div>
+	<div class="row" ng-show="IsVisible">
+		<div class="col-md-3 col-sm-6">
+			<h2>
+				<b>Choose a Category</b>
+			</h2>
+			<ul class="inline-list">
+				<li class="cursorPointer"
+					ng-repeat="categoryItem in currentObj.categoryItems"><a
+					ng-click="savePost(categoryItem,currentObj)">{{categoryItem.categoryItemName}}</a></li>
+			</ul>
+		</div>
+	</div>
 </div>
