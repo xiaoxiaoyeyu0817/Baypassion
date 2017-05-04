@@ -6,7 +6,8 @@
 					function($scope, $uibModalInstance, $location) {
 						$scope.aggree_close = function() {
 							$uibModalInstance.dismiss('cancel');
-							window.location = "http://baypassion.net?flag=1";
+//							window.location = ;
+							window.open("http://baypassion.net?flag=1","_blank");
 						};
 						$scope.disaggree_close = function(){
 							$uibModalInstance.dismiss('cancel');

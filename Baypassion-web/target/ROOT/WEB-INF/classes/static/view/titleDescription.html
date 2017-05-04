@@ -1,51 +1,61 @@
 <div class="title-description-area description-new">
-			
-						<div class="row">
-									<div class=" col-md-6">
-												<div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-															<div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-																		<img ng-src="{{slide.image}}" style="margin: auto;">
-															</div>
-												</div>
-									</div>
-									<div class="col-md-5 text-right">
-												<div class="title-button-bar">
-															<button class="btn btn-lg btn-primary" ng-click="reportAd(viewPostContent.adPostId)">Report Ad</button>
-															<button class="btn btn-lg btn-primary" ng-click="replyAd()">Reply</button>
-												</div>
-									</div>									
-						</div>
-						<div class="row">
-						<div class="thumbnail-wrapper col-xs-12 col-md-6">
-									<img class="col-xs-12 col-sm-6 col-md-3" ng-repeat="slide in slides" ng-src="{{slide.image}}" ng-click="setActive(slide.id)">
-						</div>
-						</div>
-						<div class="row">
-						
-						<div class="col-sm-9">
-									<h3 ng-bind-html="viewPostContent.title"></h3>
-									<!--             <div ng-repeat="image in viewPostContent.postImages"> -->
-									<!--                 <div class="img-block"> -->
-									<!--                     <img src="{{image.imageName}}" alt=""> -->
-									<!--                 </div> -->
-									<!--             </div> -->
-									<div class="video-section">
-												<div ng-if="viewPostContent.video">
-															<video id="bpUploadedVideo" ng-src="{{viewPostContent.video|trustUrl}}" controls></video>
-												</div>
-									</div>
-									<p class="detail-title" ng-bind-html="viewPostContent.description"></p>
-									<div class="post-sale">
-												<span>ATTENTION email me at: <b>{{viewPostContent.emailId}}</b> about details on how to order Offer ends Oct 6th! NO CATCH
-												</span>
-									</div>
-									<div class="post-sale">
-												<ul id="image-gallery">
-															<li>Location: {{viewPostContent.location}}</li>
-															<li>Post ID: {{viewPostContent.adPostId}} {{viewPostContent.city.cityName}}</li>
-												</ul>
-									</div>
-						</div>
-						</div>
+
+	<div class="row">
+		<div class=" col-md-6">
+			<div uib-carousel active="active" interval="myInterval"
+				no-wrap="noWrapSlides">
+				<div uib-slide ng-repeat="slide in slides track by slide.id"
+					index="slide.id">
+					<img ng-src="{{slide.image}}" style="margin: auto;">
+				</div>
 			</div>
+		</div>
+		<div class="col-md-5 text-right">
+			<div class="title-button-bar">
+				<button class="btn btn-lg btn-primary"
+					ng-click="reportAd(viewPostContent.adPostId)">Report Ad</button>
+				<button class="btn btn-lg btn-primary" ng-click="replyAd()">Reply</button>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="thumbnail-wrapper col-xs-12 col-md-6">
+			<img class="col-xs-12 col-sm-6 col-md-3" ng-repeat="slide in slides"
+				ng-src="{{slide.image}}" ng-click="setActive(slide.id)">
+		</div>
+	</div>
+	<div class="row">
+
+		<div class="col-sm-9">
+			<h3 ng-bind-html="viewPostContent.title"></h3>
+			<!--             <div ng-repeat="image in viewPostContent.postImages"> -->
+			<!--                 <div class="img-block"> -->
+			<!--                     <img src="{{image.imageName}}" alt=""> -->
+			<!--                 </div> -->
+			<!--             </div> -->
+			<div class="video-section">
+				<div ng-if="viewPostContent.video">
+					<video id="bpUploadedVideo"
+						ng-src="{{viewPostContent.video|trustUrl}}" controls></video>
+				</div>
+			</div>
+			<p class="detail-title" ng-bind-html="viewPostContent.description"></p>
+			<div class="post-sale">
+				<!-- 
+				<span>ATTENTION email me at: <b>{{viewPostContent.emailId}}</b>
+					about details on how to order Offer ends Oct 6th! NO CATCH
+				</span>
+				 -->
+			</div>
+			<div class="post-sale">
+				<ul id="image-gallery">
+					<li>Location: {{viewPostContent.location}}</li>
+					<li> Post Time: {{viewPostContent.postedOn}}
+					<li>Post ID: {{viewPostContent.adPostId}}
+						{{viewPostContent.city.cityName}}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 

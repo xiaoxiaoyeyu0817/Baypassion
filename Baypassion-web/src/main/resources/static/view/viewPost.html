@@ -32,11 +32,11 @@
 					<h5>{{currentAds.postedOn}}</h5>
 					<table style="width: 100%" >
 						<tr ng-repeat="post in currentAds.ads"
-							style="height: 45px; width: 100%">
-							<td style="width:50px;">
+							style="height: 50px; width: 100%">
+							<td style="width:50px; height:45px">
 								<div ng-repeat="image in post.postImages" class="post-left">
 									<div class="img-block">
-										<img src="{{image.imageName}}" alt="">
+										<img src="{{image.imageName}}" alt="" height="45px" width="">
 									</div>
 								</div>
 							</td>

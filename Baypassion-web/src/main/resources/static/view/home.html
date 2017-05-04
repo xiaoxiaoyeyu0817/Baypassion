@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="bp-country-wrapper">
-    <div class="col-md-3 col-sm-6 bp-state-wrapper" ng-repeat="state in country.state" ng-if="filterCity(state.stateName, state.city, citySearch)">
+    <div class="bp-state-wrapper" ng-repeat="state in country.state" ng-if="filterCity(state.stateName, state.city, citySearch)">
         <h3 class="heading-txt">{{state.stateName}}</h3>
         <ul class="inline-list bp-city-wrapper">
             <li class="cursorPointer" ng-repeat="city in state.city| filter:citySearch"><a ng-click="listLocation(state.stateId, city.cityId)">{{city.cityName}}</a></li>
