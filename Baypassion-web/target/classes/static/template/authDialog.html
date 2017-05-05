@@ -16,17 +16,19 @@
                 <div ng-show="form.$submitted && form.password.$invalid" class="error">
                     <span ng-show="form.password.$error.required">Password required</span>
                 </div>
-
+				<!-- 
                 <div vc-recaptcha theme="'light'" key="captcha.key" on-create="setCaptchaWidgetId(widgetId)" on-success="setCaptchaResponse(response)" on-expire="captchaExpiration()"></div>
 
                 <div ng-show="form.$submitted && captchaError" class="error">
                     <span ng-if="captchaError" >Captch is Invalid</span>      					
                 </div>
+                 -->
 
                 <label class="checkbox signup-check"> 
                     <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> 
                     <span class="checkbox-span">Remember me</span>
                 </label>
+                
                 <!-- <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button> -->
                 <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login"> 
             </form>

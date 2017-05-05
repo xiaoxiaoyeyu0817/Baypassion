@@ -14,36 +14,36 @@
                         $scope.reportReason = "";
 
                         /* GoogleCaptch */
-                        $scope.captchaResponse = null;
-                        $scope.captchawidgetId = null;
-                        $scope.captchaError = false;
-                        $scope.captcha = {
-                            key : '6LfjBx0UAAAAAD6l3QJp7bOnVRbfZHOUz8wkpRlZ'
-                        };
-                        $scope.setCaptchaResponse = function(response) {
-                            $scope.captchaError = false;
-                            $scope.captchaResponse = response;
-                        };
-
-                        $scope.setCaptchaWidgetId = function(widgetId) {
-                            $scope.captchawidgetId = widgetId;
-                        };
-
-                        $scope.captchaExpiration = function() {
-                            vcRecaptchaService.reload($scope.widgetId);
-                            $scope.captchaResponse = null;
-                        };
+//                        $scope.captchaResponse = null;
+//                        $scope.captchawidgetId = null;
+//                        $scope.captchaError = false;
+//                        $scope.captcha = {
+//                            key : '6LfjBx0UAAAAAD6l3QJp7bOnVRbfZHOUz8wkpRlZ'
+//                        };
+//                        $scope.setCaptchaResponse = function(response) {
+//                            $scope.captchaError = false;
+//                            $scope.captchaResponse = response;
+//                        };
+//
+//                        $scope.setCaptchaWidgetId = function(widgetId) {
+//                            $scope.captchawidgetId = widgetId;
+//                        };
+//
+//                        $scope.captchaExpiration = function() {
+//                            vcRecaptchaService.reload($scope.widgetId);
+//                            $scope.captchaResponse = null;
+//                        };
                         /* GoogleCaptch */
                         $scope.submitReport = function() {
                             if ($scope.reportReason == "") {
                                 $scope.msg = "Please select from the list of violations below.";
                             } else {
                                 $scope.msg = "";
-                                if ($scope.captchaResponse == null && $scope.isLive) {
-                                    $scope.captchaError = true;
+                                if (/*$scope.captchaResponse == null &&*/ $scope.isLive) {
+                                   // $scope.captchaError = true;
                                     return;
                                 } else {
-                                    $scope.captchaError = false;
+                                   // $scope.captchaError = false;
                                 }
                                 $scope.mailSender = {
                                     description : $scope.reportReason,
@@ -53,7 +53,7 @@
                                     if (data) {
                                         $scope.IsVisible = false;
                                         $scope.reportReason = "";
-                                        vcRecaptchaService.reload($scope.widgetId);
+                                        //vcRecaptchaService.reload($scope.widgetId);
                                         $scope.Successmsg = "Reported email is has been sent successfully";
                                     }
                                 });

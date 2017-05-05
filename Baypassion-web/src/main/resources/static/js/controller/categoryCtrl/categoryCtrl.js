@@ -2,14 +2,18 @@
 	'use strict';
 	angular.module('baypassionApp').controller(
 			'aggrementCtrl',
-			[ '$scope', '$uibModalInstance', '$location',
+			[
+					'$scope',
+					'$uibModalInstance',
+					'$location',
 					function($scope, $uibModalInstance, $location) {
 						$scope.aggree_close = function() {
 							$uibModalInstance.dismiss('cancel');
-//							window.location = ;
-							window.open("http://baypassion.net?flag=1","_blank");
+							// window.location = ;
+							window.open("http://baypassion.net?flag=1",
+									"_blank");
 						};
-						$scope.disaggree_close = function(){
+						$scope.disaggree_close = function() {
 							$uibModalInstance.dismiss('cancel');
 						}
 					} ]);
@@ -92,16 +96,50 @@
 									$rootScope.routeParam.catId = category.categoryId;
 									$rootScope.routeParam.catName = category.categoryName;
 									$rootScope.routeParam.subCat = categoryItem.categoryItemId;
-									$location.path("/postAddLocation/stateId-"
-											+ $scope.stateId + "/cityId-"
-											+ $scope.cityId + "/catId-"
-											+ category.categoryId + "/catName-"
-											+ category.categoryName
-											+ "/subCat-"
-											+ categoryItem.categoryItemId);
+
+									if ($sessionStorage['cityId'] != null
+											&& $sessionStorage['stateId'] != null) {
+										$rootScope.routeParam.cityId = $sessionStorage['cityId'];
+										$rootScope.routeParam.stateId = $sessionStorage['stateId'];
+										$scope.stateId = $sessionStorage['stateId'];
+										$scope.cityId = $sessionStorage['cityId'];
+										$scope.catId = category.categoryId;
+										$scope.catName = category.categoryName;
+										$scope.subCat = categoryItem.categoryItemId;
+										$location.path("/adPost/stateId-"
+												+ $scope.stateId + "/cityId-"
+												+ $scope.cityId + "/catId-"
+												+ $rootScope.routeParam.catId
+												+ "/catName-"
+												+ $rootScope.routeParam.catName
+												+ "/subCat-"
+												+ $rootScope.routeParam.subCat
+												+ "/isMultiCity-false");
+									} else {
+										$location
+												.path("/postAddLocation/stateId-"
+														+ $scope.stateId
+														+ "/cityId-"
+														+ $scope.cityId
+														+ "/catId-"
+														+ category.categoryId
+														+ "/catName-"
+														+ category.categoryName
+														+ "/subCat-"
+														+ categoryItem.categoryItemId);
+									}
+
 								}
 								$scope.setCityId = function(cityId) {
 									$rootScope.routeParam.cityId = cityId;
+									$sessionStorage['cityId'] = cityId;
+									$sessionStorage['stateId'] = $scope.stateId;
+									$scope.cityId = $sessionStorage['cityId'];
+									$scope.catId = category.categoryId;
+									$scope.catName = category.categoryName;
+									$scope.subCat = categoryItem.categoryItemId;
+									
+									
 									$location.path("/adPost/stateId-"
 											+ $scope.stateId + "/cityId-"
 											+ cityId + "/catId-"

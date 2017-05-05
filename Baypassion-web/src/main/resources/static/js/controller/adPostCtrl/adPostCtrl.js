@@ -352,7 +352,7 @@
 
                 $scope.saveAd = function (step) {
                     if (angular.isDefined($sessionStorage["user"])) {
-                        if ($scope.captchaResponse == null && $scope.isLive) {
+                        if (/*$scope.captchaResponse == null &&*/ $scope.isLive) {
                             dialog.error({title: "Error", message: "Check Captch First."});
                             return;
                         }
@@ -360,7 +360,7 @@
                         if ($scope.showPaypal && $scope.isLive) {
                             if ($scope.paymentDetails != null) {
                                 // $scope.addPost.paymentDetails=angular.copy($scope.paymentDetails);
-                                console.log("adpost data-----", $scope.addPost);
+                                //console.log("adpost data-----", $scope.addPost);
                                 adPostService.adPost($scope.addPost, $scope.dzMethods.getAcceptedFiles()).then(function (data) {
                                     $scope.changeStep(step);
                                     console.log(data, "sucess");
@@ -555,26 +555,26 @@
                 }
 
                 /* GoogleCaptch */
-                $scope.captchaResponse = null;
-                $scope.captchawidgetId = null;
-                $scope.captcha = {
-                    key: '6LfjBx0UAAAAAD6l3QJp7bOnVRbfZHOUz8wkpRlZ'
-                };
-                $scope.setCaptchaResponse = function (response) {
-                    console.info('Response available', response);
-                    $scope.captchaResponse = response;
-                };
-
-                $scope.setCaptchaWidgetId = function (widgetId) {
-                    console.info('Created widget ID: %s', widgetId);
-                    $scope.captchawidgetId = widgetId;
-                };
-
-                $scope.captchaExpiration = function () {
-                    console.info('Captcha expired. Resetting response object');
-                    vcRecaptchaService.reload($scope.widgetId);
-                    $scope.captchaResponse = null;
-                };
+//                $scope.captchaResponse = null;
+//                $scope.captchawidgetId = null;
+//                $scope.captcha = {
+//                    key: '6LfjBx0UAAAAAD6l3QJp7bOnVRbfZHOUz8wkpRlZ'
+//                };
+//                $scope.setCaptchaResponse = function (response) {
+//                    console.info('Response available', response);
+//                    $scope.captchaResponse = response;
+//                };
+//
+//                $scope.setCaptchaWidgetId = function (widgetId) {
+//                    console.info('Created widget ID: %s', widgetId);
+//                    $scope.captchawidgetId = widgetId;
+//                };
+//
+//                $scope.captchaExpiration = function () {
+//                    console.info('Captcha expired. Resetting response object');
+//                    vcRecaptchaService.reload($scope.widgetId);
+//                    $scope.captchaResponse = null;
+//                };
 
                 $scope.showImagePopup = function (data) {
                     console.log();
