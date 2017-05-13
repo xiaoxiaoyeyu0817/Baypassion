@@ -15,9 +15,7 @@
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css">
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
-	rel="stylesheet" />
+<link href="css/font-Open-Sans.css" rel="stylesheet" type="text/css" />
 <link href="css/dialog-css.css" rel="stylesheet" type="text/css">
 <link href="js/lib/jquery/dropZone/dropzone.css" rel="stylesheet"
 	type="text/css">
@@ -88,8 +86,8 @@
 
 						<li><h4>Nearby Cities</h4>
 							<ul ng-if="routeState!=null">
-								<li ng-repeat="city in routeState.city" >
-									<a class="glyphicon glyphicon-chevron-right"
+								<li ng-repeat="city in routeState.city"><a
+									class="glyphicon glyphicon-chevron-right"
 									ng-click="clickCity(routeState,city)" onclick="closeNav()">{{city.cityName}}</a>
 								</li>
 							</ul></li>
