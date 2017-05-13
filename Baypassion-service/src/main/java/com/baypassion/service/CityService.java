@@ -8,5 +8,7 @@ public interface CityService {
 
     /** Get all cities. **/
     public List<City> getAllCities();
+    
+    public City getCity(Integer cityId);
 
 }

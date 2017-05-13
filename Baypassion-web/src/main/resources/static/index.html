@@ -39,30 +39,6 @@
 .ulPositoin {
 	float: left;
 }
-
-.black_overlay {
-	display: block;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	width: 100%;
-	height: 100%;
-	z-index: 1001;
-}
-
-.white_content {
-	display: none;
-	position: absolute;
-	top: 25%;
-	left: 25%;
-	width: 50%;
-	height: 50%;
-	padding: 16px;
-	border: 16px solid orange;
-	background-color: white;
-	z-index: 1002;
-	overflow: auto;
-}
 </style>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -81,42 +57,21 @@
 <script src="js/lib/jquery/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/lib/jquery/ui-bootstrap-tpls-2.4.0.js"
 	type="text/javascript"></script>
-<!-- <script src="js/lib/angular/angular-ui-router.js" type="text/javascript"></script> -->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
 </head>
 <body>
-	<div id="light" class="white_content">
-		<div class="modal-header">
-			<h3 class="modal-title">WARNING</h3>
-		</div>
-		<div class="modal-body">
+	<span ng-if="showNavigationDrawer" class="opent-btn"
+		onclick="openNav()" ng-cloak="">&#9776;</span>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+		}
 
-			<p align="center" style="margin-top: 1em">
-				<font size="6" face="sans-serif"> WARNING ! </font>
-			</p>
-			<p>You're about to enter the Escort Section which providers
-				information regarding escort services .If you're under age of 18 or
-				browsing such information is illegal under your States or local
-				laws,you're NOT ALLOWED to enter .please leave immediately .Thank
-				you.</p>
-			<p align="center" style="margin-top: 1em">
-				<font size="6" face="sans-serif"> WARNING ! </font>
-			</p>
-			<p>You're about to post an advertisement under the Escort
-				Section. Please bear in mind that some state or local government
-				requires license or permit for escort service .if you're subject to
-				such requirements,you're required to obtain the appropriate license
-				or permit before posting an advertisement here.Thank you.</p>
-		</div>
-		<div class="nav-wrapper">
-			<button class="btn btn-warning" type="button"
-				onclick="disaggree_close()">Disaggrement</button>
-			<button class="btn btn-warning" type="button"
-				onclick="aggree_close()">Aggrement</button>
-		</div>
-	</div>
-	<div id="fade" class="black_overlay">
-		<!--  left navigation S -->
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
+	<!--  left navigation E -->
+	<div class="container" ng-controller="baseCtrl" data-ng-init="init()">
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="left-nav">
@@ -130,22 +85,16 @@
 								Account</a></li>
 						<li><a href="#" class="closelink" onclick="closeNav()">Buy
 								Credits</a></li>
-						<!-- 
-                        <li><h4>Change Language</h4></li>
-                        <li><a href="#">español<span class="pull-right"> <i class="glyphicon glyphicon-chevron-right"></i></span></a></li>
-                        -->
 
-						<li><h4>Nearby Cities</h4></li>
-						<!-- 
-                        <li><a href="#">anchorage<span class="pull-right"> <i class="glyphicon glyphicon-chevron-right"></i></span></a></li>
-                        <li><a href="#">fairbanks <span class="pull-right"> <i class="glyphicon glyphicon-chevron-right"></i></span></a></li>
-                        <li><a href="#">juneau <span class="pull-right"> <i class="glyphicon glyphicon-chevron-right"></i></span></a></li>
-                        <li><a href="#">kenai peninsula <span class="pull-right"> <i class="glyphicon glyphicon-chevron-right"></i></span></a></li>
-                         -->
+						<li><h4>Nearby Cities</h4>
+							<ul ng-if="routeState!=null">
+								<li ng-repeat="city in routeState.city" >
+									<a class="glyphicon glyphicon-chevron-right"
+									ng-click="clickCity(routeState,city)" onclick="closeNav()">{{city.cityName}}</a>
+								</li>
+							</ul></li>
 						<li><a ng-href="#base" class="closelink" onclick="closeNav()">View
-								All Cities<span class="pull-right"> <i
-									class="glyphicon glyphicon-chevron-right"></i></span>
-						</a></li>
+								All Cities </a></li>
 					</ul>
 				</div>
 			</div>
@@ -153,180 +102,129 @@
 
 
 
-		<span ng-if="showNavigationDrawer" class="opent-btn"
-			onclick="openNav()" ng-cloak="">&#9776;</span>
-		<script>
-			function openNav() {
-				document.getElementById("mySidenav").style.width = "250px";
-			}
 
-			function closeNav() {
-				document.getElementById("mySidenav").style.width = "0";
-			}
-			function aggree_close() {
-				document.getElementById('light').style.display = 'none';
-				document.getElementById('fade').style.display = 'block'
-			}
-			function disaggree_close() {
-				document.getElementById('light').style.display = 'none';
-				document.getElementById('fade').style.display = 'block'
-				window.location = "http://baypassion.com";
-			}
-			function aggrementOpen() {
-				document.getElementById('light').style.display = 'block';
-				document.getElementById('fade').style.display = 'none'
-			}
-			function aggrementClose() {
-				document.getElementById('light').style.display = 'none';
-				document.getElementById('fade').style.display = 'block'
-			}
-		</script>
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script>
-			$(document)
-					.ready(
-							function() {
-								if (window.location.hostname == "baypassion.net") {
-									function getURLParameter(name) {
-										return decodeURIComponent((new RegExp(
-												'[?|&]' + name + '='
-														+ '([^&;]+?)(&|#|;|$)')
-												.exec(location.search) || [
-												null, '' ])[1].replace(/\+/g,
-												'%20'))
-												|| null;
-									}
-									myFlag = getURLParameter('flag');
-									if (myFlag) {
-										aggrementClose();
-									} else {
-										aggrementOpen();
-									}
-								}
-								$(".opent-btn").click(function() {
-									$("body").addClass("overlay");
-								});
-								$(".closebtn").click(function() {
-									$("body").removeClass("overlay");
-								});
-								$(".closelink").click(function() {
-									$("body").removeClass("overlay");
-								});
-							});
-		</script>
-		<!--  left navigation E -->
-		<div class="container" ng-controller="baseCtrl">
-			<header class="bg-top row">
-				<div class="col-sm-3">
-					<div class="text-center logo">
-						<a href="#base"> <img src="images/logo.jpg">
-							<h3>
-								Baypassion- <span>E</span>
-							</h3>
-						</a>
-					</div>
+		<header class="bg-top row">
+			<div class="col-sm-3">
+				<div class="text-center logo">
+					<a href="#base"> <img src="images/logo.jpg">
+						<h3>
+							Baypassion- <span>E</span>
+						</h3>
+					</a>
 				</div>
-				<div class="col-sm-8 pull-right" ng-if="showLocation">
-					<div class="location-area row">
-						<div class="col-xs-12" ng-if="!showUser">
-							<div class="col-sm-6">
-								<a href="" class="dropdown-toggle" type="button"
-									data-popover="dropdown"
-									ng-click="fetchCountries(); chooseLoc = !chooseLoc;"> <span>Choose
-										a location <i class="fa fa-map-marker"></i>
-								</span>
-								</a>
-								<ul class="dropdown-menu" ng-if="chooseLoc">
-									<li ng-repeat="country in countries"><a href="#">{{country.countryName}}</a>
-									</li>
-								</ul>
-							</div>
-							<div class="col-sm-6 text-right">
-								<a href="#" class="dropdown-toggle" type="button"
-									data-toggle="dropdown" ng-click="changeLng = !changeLng;">
-									<span>change a language<i class="fa fa-map-marker"
-										style="margin-left: 2%;"></i>
-								</span>
-								</a>
-								<ul class="dropdown-menu" ng-if="changeLng">
-									<li><a href="#">English</a></li>
-									<li><a href="#">Chinese</a></li>
-								</ul>
-							</div>
+			</div>
+			<div class="col-sm-8 pull-right">
+				<div class="location-area row">
+					<div class="col-xs-12">
+						<div class="col-sm-6">
+							<a href="" class="dropdown-toggle" type="button"
+								data-popover="dropdown"
+								ng-click="fetchCountries(); chooseLoc = !chooseLoc;"> <span>Choose
+									a location <i class="fa fa-map-marker"></i>
+							</span>
+							</a>
+							<ul class="dropdown-menu" ng-if="chooseLoc">
+								<li ng-repeat="country in countries"><a href="#">{{country.countryName}}</a>
+								</li>
+							</ul>
 						</div>
-						<h4 ng-if="showUser">
-							logged in as <a> {{userName}}</a>
-						</h4>
+						<div class="col-sm-6 text-right">
+							<a href="#" class="dropdown-toggle" type="button"
+								data-toggle="dropdown" ng-click="changeLng = !changeLng;"> <span>change
+									a language<i class="fa fa-map-marker" style="margin-left: 2%;"></i>
+							</span>
+							</a>
+							<ul class="dropdown-menu" ng-if="changeLng">
+								<li><a href="#">English</a></li>
+								<li><a href="#">Chinese</a></li>
+							</ul>
+						</div>
 					</div>
-					<a ng-if="showLogin" ng-click="logout()" class="cursorPointer"
-						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Logout</a>
-					<a ng-if="!showLogin" href="#login"
-						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right; margin-right: 10px;">
-						Login </a> <a ng-if="postAdd" href="#postAnAd"
-						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Post
-						ad</a> <a ng-if="!postAdd" href="#changePassword"
-						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right; margin-right: 10px;">Change
-						Password</a>
+					<h4 ng-if="showUser">
+						logged in as <a> {{userName}}</a>
+					</h4>
 				</div>
-				<div class="col-sm-8 pull-right" ng-if="showPostContent">
-					<div class="post-add">
+				<div class="col-sm-6 pull-left">
+					<a ng-if="routeCountry!=null"
+						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px;">{{routeCountry.countryName}}&gt;</a>
+
+					<a ng-if="routeState!=null" ng-click="clickState(routeState)"
+						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px;">{{routeState.stateName}}&gt;</a>
+
+					<a ng-if="routeCity!=null"
+						ng-click="clickCity(routeState,routeCity)"
+						style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px;">{{routeCity.cityName}}</a>
+				</div>
+
+				<a ng-if="showLogin" ng-click="logout()" class="cursorPointer"
+					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Logout</a>
+				<a ng-if="!showLogin" href="#login"
+					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right; margin-right: 10px;">
+					Login </a> <a ng-if="postAdd" href="#postAnAd"
+					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Post
+					ad</a> <a ng-if="!postAdd" href="#changePassword"
+					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right; margin-right: 10px;">Change
+					Password</a>
+			</div>
+
+
+
+			<div class="col-sm-8 pull-right" ng-if="showPostContent">
+				<div class="post-add">
+					<div class="inline-ad"
+						style="margin-top: 17px; display: inline-block; vertical-align: super;">
 						<div class="inline-ad"
 							style="margin-top: 17px; display: inline-block; vertical-align: super;">
-							<!-- <button type="submit" value="Post ad" class="btn-serh"> -->
+							<a
+								ng-href="#postAdd/stateId-{{routeParam.stateId}}/cityId-{{routeParam.cityId}}/catId-{{routeParam.catId}}/catName-{{routeParam.catName}}/subCat-{{routeParam.subCat}}/isMultiCity-false"
+								class="cursorPointer"
+								style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Post
+								ad</a>
+						</div>
+						<!-- </button> -->
+						<div class="inline-ad"
+							style="margin-top: 17px; display: inline-block; vertical-align: super;">
+							<input type="text" placeholder="keyword"
+								ng-model="categoriesInfo.searchKeyword"> <select
+								ng-model="categoriesInfo.selectedCategory">
+								<option ng-repeat="category in categories">{{category.categoryName}}</option>
+							</select>
 							<div class="inline-ad"
 								style="margin-top: 17px; display: inline-block; vertical-align: super;">
-								<a
-									ng-href="#postAdd/stateId-{{routeParam.stateId}}/cityId-{{routeParam.cityId}}/catId-{{routeParam.catId}}/catName-{{routeParam.catName}}/subCat-{{routeParam.subCat}}/isMultiCity-false"
-									class="cursorPointer"
-									style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Post
-									ad</a>
+								<button type="button" ng-click="search()" value="search"
+									class="btn-serh">Search</button>
 							</div>
-							<!-- </button> -->
 							<div class="inline-ad"
 								style="margin-top: 17px; display: inline-block; vertical-align: super;">
-								<input type="text" placeholder="keyword"
-									ng-model="categoriesInfo.searchKeyword"> <select
-									ng-model="categoriesInfo.selectedCategory">
-									<option ng-repeat="category in categories">{{category.categoryName}}</option>
-								</select>
-								<div class="inline-ad"
-									style="margin-top: 17px; display: inline-block; vertical-align: super;">
-									<button type="button" ng-click="search()" value="search"
-										class="btn-serh">Search</button>
-								</div>
-								<div class="inline-ad"
-									style="margin-top: 17px; display: inline-block; vertical-align: super;">
-									<a ng-if="!showLogin" href="#login" class="cursorPointer"
-										style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">
-										Login </a> <a ng-if="showLogin" ng-click="logout()"
-										class="cursorPointer"
-										style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Logout</a>
-								</div>
+								<a ng-if="!showLogin" href="#login" class="cursorPointer"
+									style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">
+									Login </a> <a ng-if="showLogin" ng-click="logout()"
+									class="cursorPointer"
+									style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Logout</a>
 							</div>
 						</div>
 					</div>
 				</div>
-			</header>
-			<div ng-view=""></div>
-		</div>
-		<div class="container-fluid f-bg">
-			<div class="container">
-				<div class="footer">
-					<ul class="ftr-list cursor">
-						<li><a href="#demo"> My Account </a></li>
-						<li><a href="">Buy Credits </a></li>
-						<li><a href="#contact"> Contact</a></li>
-						<li><a href="#help">Help </a></li>
-						<li><a href="#privacy">Privacy Terms © 2017</a></li>
-					</ul>
-				</div>
+			</div>
+		</header>
+		<div ng-view=""></div>
+	</div>
+	<div class="container-fluid f-bg">
+		<div class="container">
+			<div class="footer">
+				<ul class="ftr-list cursor">
+					<li><a href="#demo"> My Account </a></li>
+					<li><a href="">Buy Credits </a></li>
+					<li><a href="#contact"> Contact</a></li>
+					<li><a href="#help">Help </a></li>
+					<li><a href="#privacy">Privacy Terms © 2017</a></li>
+				</ul>
 			</div>
 		</div>
-		<div id="loader"></div>
-		<div id="dialogBg"></div>
-		<div id="bpPopupWrapper"></div>
 	</div>
+	<div id="loader"></div>
+	<div id="dialogBg"></div>
+	<div id="bpPopupWrapper"></div>
 	<script src="js/app/app.js" type="text/javascript"></script>
 	<script src="js/app/route.js" type="text/javascript"></script>
 	<script src="js/controller/loginCtrl/loginCtrl.js"
@@ -377,6 +275,7 @@
 		type="text/javascript"></script>
 	<script src="js/service/replyPost/replyPostService.js"
 		type="text/javascript"></script>
+	<script src="js/controller/cityCtrl/cityCtrl.js"></script>
 	<script src="https://www.paypalobjects.com/api/checkout.js"
 		type="text/javascript"></script>
 	<script src="js/lib/jquery/tinyMce/tinymce.js " type="text/javascript"></script>
@@ -398,5 +297,18 @@
 		type="text/javascript"></script>
 	<script src="js/service/common/dialogFactory.js"></script>
 	<script src="js/lib/md5/md5.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(".opent-btn").click(function() {
+				$("body").addClass("overlay");
+			});
+			$(".closebtn").click(function() {
+				$("body").removeClass("overlay");
+			});
+			$(".closelink").click(function() {
+				$("body").removeClass("overlay");
+			});
+		});
+	</script>
 </body>
 </html>

@@ -40,6 +40,12 @@ public class CountryController {
     public List<Country> getAllCountry() {
         return countryService.getAllCountry();
     }
+    
+    @RequestMapping(value = "/getCountry", method = RequestMethod.GET)
+    public Country getCountry(@RequestParam Integer countryId) {
+        return countryService.getCountry(countryId);
+    }
+
 
     @RequestMapping(value = "/getState", method = RequestMethod.GET)
     public State getState(@RequestParam Integer stateId) {
@@ -57,5 +63,15 @@ public class CountryController {
     public List<City> getAllCities() {
         return cityService.getAllCities();
     }
+    
+    
+    @RequestMapping(value = "/getCity", method = RequestMethod.GET)
+    public City getCity(@RequestParam Integer cityId) {
+        return cityService.getCity(cityId);
+    }
+    
+    
+    
+    
 
 }

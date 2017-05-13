@@ -21,7 +21,7 @@
 									commonService
 											.setStateId($sessionStorage['stateId']);
 									commonService
-									.setCityId($sessionStorage['cityId']);
+											.setCityId($sessionStorage['cityId']);
 									$location
 											.path("/postAdd/stateId-"
 													+ $sessionStorage['stateId']

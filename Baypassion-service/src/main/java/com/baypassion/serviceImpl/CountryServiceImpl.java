@@ -21,4 +21,8 @@ public class CountryServiceImpl implements CountryService {
     public List<Country> getAllCountry() {
         return countryRepo.findAll();
     }
+
+	public Country getCountry(Integer countryId) {
+		return countryRepo.findOne(countryId);
+	}
 }

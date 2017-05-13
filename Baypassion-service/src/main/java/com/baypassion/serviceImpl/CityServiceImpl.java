@@ -23,4 +23,8 @@ public class CityServiceImpl implements CityService {
         return cityRepository.findAll();
     }
 
+	public City getCity(Integer cityId) {
+		return cityRepository.findOne(cityId);
+	}
+
 }

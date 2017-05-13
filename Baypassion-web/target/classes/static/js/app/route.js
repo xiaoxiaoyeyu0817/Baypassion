@@ -36,6 +36,16 @@
                         return param;
                     }
                 }
+            }).when('/listLocation/:stateId',{
+            	templateUrl: 'view/listCityInState.html',
+            	controller:'cityCtrl',
+            	resolve:{
+            		param:function($location,$rootScope){
+            			var param = fetchReloadParam($location, ["stateId"]);
+                        setReloadParam(param, $rootScope.routeParam);
+                        return param;
+            		}
+            	}
             }).when('/base', {
                 templateUrl: 'view/home.html',
                 controller: 'homeCtrl',
@@ -218,7 +228,7 @@
             });//105.83
 
             //$locationProvider.html5Mode(true);
-        }]).run(function ($sessionStorage, $http, $rootScope, $location, $sessionStorage) {
+        }]).run(function ( $http, $rootScope, $location, $sessionStorage,commonService) {
         $rootScope.isLive = false;
         $http.defaults.headers.common['Content-Type'] = 'application/json';
 //            $http.defaults.headers.common['Accept'] = 'application/json';       
@@ -241,6 +251,8 @@
                 if ((next.lastIndexOf("#/base")) > 0) {
                     $rootScope.showLocation = true;
                     $rootScope.showPostContent = false;
+                    $sessionStorage['cityId'] = null;
+                    $sessionStorage['stateId'] = null
                 } else {
                     $rootScope.showLocation = false;
                     $rootScope.showPostContent = true;
@@ -261,6 +273,32 @@
             {
                 $rootScope.showLogin = true;
             }
+            if($sessionStorage['stateId'] != null){
+            	commonService.getState($sessionStorage['stateId']).then(function(response){
+            		$rootScope.routeState = response;
+            		console.log($rootScope.routeState.stateName);
+            	});
+            }else{
+            	$rootScope.routeState = null;
+            }
+            if($sessionStorage['cityId'] != null){
+            	commonService.getCity($sessionStorage['cityId']).then(function(response){
+            		$rootScope.routeCity = response;
+            		console.log($rootScope.routeCity.cityName);
+            	});
+            }else{
+            	$rootScope.routeCity = null;
+            }
+            if($sessionStorage['countryId']!=null){
+            	commonService.getCountry($sessionStorage['countryId']).then(function(response){
+            		$rootScope.routeCountry = response;
+            	});
+            }else{
+            	$rootScope.routeCountry = null;
+            }
+            
+            
+            
         });
     });
 })();

@@ -12,4 +12,6 @@ public interface CountryService {
      * @return
      */
     public List<Country> getAllCountry();
+    
+    public Country getCountry(Integer countryId);
 }

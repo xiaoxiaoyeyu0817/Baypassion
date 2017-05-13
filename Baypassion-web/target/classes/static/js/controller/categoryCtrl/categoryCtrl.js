@@ -1,22 +1,5 @@
 (function() {
 	'use strict';
-	angular.module('baypassionApp').controller(
-			'aggrementCtrl',
-			[
-					'$scope',
-					'$uibModalInstance',
-					'$location',
-					function($scope, $uibModalInstance, $location) {
-						$scope.aggree_close = function() {
-							$uibModalInstance.dismiss('cancel');
-							// window.location = ;
-							window.open("http://baypassion.net?flag=1",
-									"_blank");
-						};
-						$scope.disaggree_close = function() {
-							$uibModalInstance.dismiss('cancel');
-						}
-					} ]);
 	angular
 			.module('baypassionApp')
 			.controller(
@@ -58,8 +41,7 @@
 											$scope.cities = data.city;
 										});
 
-								$scope.open = function() {
-									console.log('opening pop up');
+								$scope.aggrementOpen = function() {
 									var modalInstance = $uibModal.open({
 										templateUrl : 'view/aggrement.html',
 										controller : 'aggrementCtrl',
@@ -138,8 +120,7 @@
 									$scope.catId = category.categoryId;
 									$scope.catName = category.categoryName;
 									$scope.subCat = categoryItem.categoryItemId;
-									
-									
+
 									$location.path("/adPost/stateId-"
 											+ $scope.stateId + "/cityId-"
 											+ cityId + "/catId-"
