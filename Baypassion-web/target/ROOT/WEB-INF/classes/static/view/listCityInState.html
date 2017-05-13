@@ -1,0 +1,10 @@
+<div class="bp-country-wrapper">
+	<div class="bp-state-wrapper" >
+		<h3 class="heading-txt">{{routeState.stateName}}</h3>
+		<ul class="inline-list bp-city-wrapper">
+			<li class="cursorPointer"
+				ng-repeat="city in cities"><a
+				ng-click="clickCity(city)">{{city.cityName}}</a></li>
+		</ul>
+	</div>
+</div>
