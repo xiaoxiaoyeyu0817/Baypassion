@@ -106,7 +106,58 @@
 					});
 					return deferred.promise;
 				}
+				obj.getState = function(stateId) {
+					var deferred = $q.defer();
+					var config = {
+						headers : {
+							'Content-Type' : 'application/json'
+						}
+					};
+					$http.get('getState?stateId=' + stateId, config).success(
+							function(data, status, headers, config) {
+								deferred.resolve(data);
+							}).error(function(data, status, headers, config) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				}
+				obj.getCity = function(cityId){
+					var deferred = $q.defer();
+					var config = {
+						headers : {
+							'Content-Type' : 'application/json'
+						}
+					};
+					$http.get('getCity?cityId=' + cityId, config).success(
+							function(data, status, headers, config) {
+								deferred.resolve(data);
+							}).error(function(data, status, headers, config) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				}
+				obj.getCountry = function(countryId){
+					var deferred = $q.defer();
+					var config = {
+						headers : {
+							'Content-Type' : 'application/json'
+						}
+					};
+					$http.get('getCountry?countryId=' + countryId, config).success(
+							function(data, status, headers, config) {
+								deferred.resolve(data);
+							}).error(function(data, status, headers, config) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				}
+				
+				
+				
+				
 				return obj;
 
 			});
+	
+	
 })();

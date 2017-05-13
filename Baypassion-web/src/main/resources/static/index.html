@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="baypassionApp">
+
 <head>
 <script type="text/javascript">
 	document.write("<base href=" + document.location.href + ">");
@@ -25,8 +26,8 @@
 	type="text/css">
 
 
-<style>
-.error {
+<style type="text/css">
+display:block ; .error {
 	color: red;
 }
 
@@ -160,7 +161,7 @@
 					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right; margin-right: 10px;">
 					Login </a> <a ng-if="postAdd" href="#postAnAd"
 					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Post
-					ad</a> <a ng-if="!postAdd" href="#changePassword"
+					ad &nbsp;&nbsp;</a> <a ng-if="!postAdd" href="#changePassword"
 					style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right; margin-right: 10px;">Change
 					Password</a>
 			</div>
@@ -179,7 +180,6 @@
 								style="color: #009bb6; font-family: 'EuromodeBold'; font-size: 16px; float: right;">Post
 								ad</a>
 						</div>
-						<!-- </button> -->
 						<div class="inline-ad"
 							style="margin-top: 17px; display: inline-block; vertical-align: super;">
 							<input type="text" placeholder="keyword"
